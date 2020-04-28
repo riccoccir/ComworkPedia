@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         @include('layout.partial.landingpageheader')
+        @section('title', 'home')
     </head>
     <body>
         @include('layout.partial.guestnavbar')
