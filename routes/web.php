@@ -22,3 +22,15 @@ Route::get('/home', function () {
 Route::get('/clientlogin', function () {
     return view('clientlogin');
 });
+
+Route::get('/clientregister', function () {
+    return view('clientregister');
+});
+
+Route::get('/artistlogin', function () {
+    return view('artistlogin');
+});
+
+Route::get('/artistregister', function () {
+    return view('artistregister');
+});

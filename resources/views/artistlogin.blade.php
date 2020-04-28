@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         @extends('layout.partial.landingpageheader')
-        @section('title', 'Client - Login')
+        @section('title', 'Artist - Login')
     </head>
     <body>
         @include('layout.partial.guestnavbar')
@@ -15,7 +15,7 @@
                             <div id="login-box" class="col-md-12 p-5 rounded" style="background-color: #222831">
                                 <form id="login-form" class="form" action="" method="post">
                                     <h3 class="text-center text-white">Login</h3>
-                                    <h4 class="text-center text-white">Log in with your client account</h4>
+                                    <h4 class="text-center text-white">Log in with your artist account</h4>
                                     <div class="form-group">
                                         <label for="username" class="text-white">Username:</label><br>
                                         <input type="text" name="username" id="username" class="form-control">
@@ -29,7 +29,7 @@
                                         <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">
                                     </div>
                                     <div id="register-link" class="text-right">
-                                        <a href="/clientregister" class="text-white">Register as client</a>
+                                        <a href="/artistregister" class="text-white">Register as artist</a>
                                     </div>
                                 </form>
                             </div>

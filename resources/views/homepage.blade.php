@@ -12,10 +12,5 @@
         @include('layout.partial.artcategories')
         
         @include('layout.partial.footer')
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-            Launch demo modal
-        </button>
     </body>
 </html>

@@ -34,7 +34,7 @@
                 </button>
             </div>
         <div class="modal-body">
-                ...
+                please choose your account type
         </div>
             <div class="modal-footer text-center">
                 <a href="/clientlogin"><input type="button" class="btn btn-primary" value="As Client"></a>
@@ -54,7 +54,7 @@
                 </button>
             </div>
         <div class="modal-body">
-                ...
+            please choose your account type
         </div>
             <div class="modal-footer text-center">
                 <a href="/clientregister"><input type="button" class="btn btn-primary" value="As Client"></a>
