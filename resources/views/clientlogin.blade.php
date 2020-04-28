@@ -12,7 +12,7 @@
                 <div class="p-5">
                     <div id="login-row" class="row justify-content-center align-items-center">
                         <div id="login-column" class="col-md-6 align-items-center" >
-                            <div id="login-box" class="col-md-12 p-5" style="background-color: #222831">
+                            <div id="login-box" class="col-md-12 p-5 rounded" style="background-color: #222831">
                                 <form id="login-form" class="form" action="" method="post">
                                     <h3 class="text-center text-white">Login</h3>
                                     <h4 class="text-center text-white">Log in with your guest account</h4>
@@ -25,8 +25,8 @@
                                         <input type="text" name="password" id="password" class="form-control">
                                     </div>
                                     <label for="remember-me" class="text-white"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                    <div class="form-group align-items-center">
-                                        <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                    <div class="form-group text-center">
+                                        <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">
                                     </div>
                                     <div id="register-link" class="text-right">
                                         <a href="/clientregister" class="text-white">Register here</a>

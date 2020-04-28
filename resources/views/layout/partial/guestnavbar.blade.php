@@ -12,13 +12,56 @@
         <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/clientlogin">Login</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/clientregister" tabindex="-1" aria-disabled="true">Register</a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" data-toggle="modal" data-target="#registerModal">Register</a>
                 </li>
             </ul>
         </form>
         </div>
     </div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <div class="modal-body">
+                ...
+        </div>
+            <div class="modal-footer text-center">
+                <a href="/clientlogin"><input type="button" class="btn btn-primary" value="As Client"></a>
+                <a href="/artistlogin"><input type="button" class="btn btn-primary" value="As Artist"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <div class="modal-body">
+                ...
+        </div>
+            <div class="modal-footer text-center">
+                <a href="/clientregister"><input type="button" class="btn btn-primary" value="As Client"></a>
+                <a href="/artistregister"><input type="button" class="btn btn-primary" value="As Artist"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ asset('js/app.js') }}"></script>
