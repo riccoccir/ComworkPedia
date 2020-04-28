@@ -9,12 +9,13 @@
 
         <div class="container mt-5 md-5">
             <div id="login">
-                <div class="p-5" style="background-color: #222831">
+                <div class="p-5">
                     <div id="login-row" class="row justify-content-center align-items-center">
-                        <div id="login-column" class="col-md-6 align-items-center">
-                            <div id="login-box" class="col-md-12">
+                        <div id="login-column" class="col-md-6 align-items-center" >
+                            <div id="login-box" class="col-md-12 p-5" style="background-color: #222831">
                                 <form id="login-form" class="form" action="" method="post">
                                     <h3 class="text-center text-white">Login</h3>
+                                    <h4 class="text-center text-white">Log in with your guest account</h4>
                                     <div class="form-group">
                                         <label for="username" class="text-white">Username:</label><br>
                                         <input type="text" name="username" id="username" class="form-control">
@@ -37,7 +38,6 @@
                 </div>
             </div>
         </div>
-        
         @include('layout.partial.footer')
     </body>
 </html>
