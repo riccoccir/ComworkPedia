@@ -14,7 +14,9 @@
                         <div id="login-column" class="col-md-6 align-items-center" >
                             <div id="login-box" class="col-md-12 p-5 rounded" style="background-color: #222831">
                                 <form id="login-form" class="form" action="" method="post">
-                                    <h3 class="text-center text-white">Login</h3>
+                                    <div class="text-center mb-4">
+                                        <img src="images/logo-white.png" alt="logo" style="height:60px; width: 100px">
+                                    </div>
                                     <h4 class="text-center text-white">Log in with your artist account</h4>
                                     <div class="form-group">
                                         <label for="username" class="text-white">Username:</label><br>
@@ -22,7 +24,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="text-white">Password:</label><br>
-                                        <input type="text" name="password" id="password" class="form-control">
+                                        <input type="password" name="password" id="password" class="form-control">
                                     </div>
                                     <label for="remember-me" class="text-white"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
                                     <div class="form-group text-center">
