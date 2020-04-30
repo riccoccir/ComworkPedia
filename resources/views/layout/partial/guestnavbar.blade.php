@@ -12,10 +12,10 @@
         <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal"><input type="button" class="btn" value="Login" style="color: white; background-color: #222831"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" data-toggle="modal" data-target="#registerModal">Register</a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" data-toggle="modal" data-target="#registerModal"><input type="button" class="btn" value="Register" style="color: white; background-color: #00ADB5"></a>
                 </li>
             </ul>
         </form>
@@ -23,7 +23,7 @@
     </div>
 </nav>
 
-<!-- Modal -->
+<!-- Modal Login-->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -36,7 +36,7 @@
         <div class="modal-body">
                 please choose your account type
         </div>
-            <div class="modal-footer text-center">
+            <div class="modal-footer">
                 <a href="/clientlogin"><input type="button" class="btn btn-primary" value="As Client"></a>
                 <a href="/artistlogin"><input type="button" class="btn btn-primary" value="As Artist"></a>
             </div>
@@ -44,6 +44,8 @@
     </div>
 </div>
 
+
+<!-- Modal Register -->
 <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
