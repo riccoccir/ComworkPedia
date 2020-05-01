@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 class CommissionListController extends Controller
 {
     public function showList(){
-        $type = $_GET['type'];
-        return view('commissionlist', ['commissioncategory' => $type]);
+        $categorytype = ['Vector Art', 'WPAP', 'Line Art', 'Low Poly Art', 'Flat Design', 'Karikatur'];
+
+        $type = $_GET['typeid'];
+        return view('commissionlist', ['commissioncategory' => $categorytype[$type - 1]]);
     }
 }
