@@ -34,3 +34,7 @@ Route::get('/artistlogin', function () {
 Route::get('/artistregister', function () {
     return view('artistregister');
 });
+
+Route::get('/commissionlist', function () {
+    return view('commissionlist');
+});
