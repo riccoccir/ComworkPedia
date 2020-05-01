@@ -19,7 +19,7 @@
 
   <!-- Page Content -->
   <div class="container mt-5">
-      <h1 class="mt-5 mb-5">Commission list for @yield('commissioncategory')</h1>
+      <h1 class="mt-5 mb-5">Commission list for <?php echo $commissioncategory; ?></h1>
       <!-- /.col-lg-3 -->
 
       <div class="col-centered">
