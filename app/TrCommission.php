@@ -8,3 +8,4 @@ class TrCommission extends Model
 {
     protected $table = 'trcommission';
 }
+
