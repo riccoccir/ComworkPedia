@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MsCommissionTypeSeeder::class);
         $this->call(MsPaymentSeeder::class);
         $this->call(TrCommissionSeeder::class);
+        $this->call(DetailHireSeeder::class);
+        $this->call(HeaderHireTransactionSeeder::class);
     }
 }
