@@ -13,15 +13,15 @@
                     <div id="login-row" class="row justify-content-center align-items-center">
                         <div id="login-column" class="col-md-6 align-items-center" >
                             <div id="login-box" class="col-md-12 p-5 rounded" style="background-color: #222831">
-                                <form id="login-form" class="form" action="/postuserlogin" method="post">
+                                <form id="login-form" class="form" action="/postuserlogin" method="POST">
                                     {{csrf_field()}}
                                     <div class="text-center mb-4">
                                         <img src="images/logo-white.png" alt="logo" style="height:60px; width: 100px">
                                     </div>
                                     <h4 class="text-center text-white">Log in with your client account</h4>
                                     <div class="form-group">
-                                        <label for="username" class="text-white">Username:</label><br>
-                                        <input type="text" name="username" id="username" class="form-control">
+                                        <label for="email" class="text-white">Email:</label><br>
+                                        <input type="text" name="email" id="email" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="text-white">Password:</label><br>

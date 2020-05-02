@@ -29,6 +29,9 @@ Route::get('/clientregister', function () {
     return view('clientregister');
 });
 
+Route::post('/postuserregister', 'AuthController@clientRegister');
+
+
 Route::get('/artistlogin', function () {
     return view('artistlogin');
 });

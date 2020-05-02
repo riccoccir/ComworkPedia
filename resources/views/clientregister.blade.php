@@ -10,10 +10,11 @@
         <div class="container mt-5 md-5">
             <div id="login">
                 <div class="p-5">
-                    <div id="login-row" class="row justify-content-center align-items-center">
-                        <div id="login-column" class="col-md-6 align-items-center" >
-                            <div id="login-box" class="col-md-12 p-5 rounded" style="background-color: #222831">
-                                <form id="login-form" class="form" action="" method="post">
+                    <div id="register-row" class="row justify-content-center align-items-center">
+                        <div id="register-column" class="col-md-6 align-items-center" >
+                            <div id="register-box" class="col-md-12 p-5 rounded" style="background-color: #222831">
+                                <form id="register-form" class="form" action="/postuserregister" method="POST">
+                                    {{ csrf_field() }}
                                     <div class="text-center mb-4">
                                         <img src="images/logo-white.png" alt="logo" style="height:60px; width: 100px">
                                     </div>
@@ -33,10 +34,6 @@
                                     <div class="form-group">
                                         <label for="email" class="text-white">Email:</label><br>
                                         <input type="email" name="email" id="email" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password" class="text-white">Password:</label><br>
-                                        <input type="text" name="password" id="password" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="text-white">Password:</label><br>

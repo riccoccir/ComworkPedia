@@ -16,7 +16,7 @@ class CreateMsClientTable extends Migration
         Schema::create('msclient', function (Blueprint $table) {
             $table->bigIncrements('client_id');
             $table->string('client_name');
-            $table->string('client_email');
+            $table->string('client_email')->unique();
             $table->string('client_password');
             $table->string('client_phoneNumber');
             $table->timestamps();
