@@ -3,7 +3,7 @@
 
 <head>
   @extends('layout.partial.landingpageheader')
-  @section('title', 'List')
+  @section('title', 'Commission List')
   <!-- Bootstrap core CSS -->
   <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
 
@@ -15,7 +15,7 @@
 <body>
 
   <!-- Navigation -->
-  @include('layout.partial.guestnavbar')
+  @include('layout.partial.usernavbar')
 
   <!-- Page Content -->
   <div class="container mt-5">

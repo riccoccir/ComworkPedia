@@ -23,6 +23,8 @@ Route::get('/clientlogin', function () {
     return view('clientlogin');
 });
 
+Route::post('/postuserlogin', 'AuthController@clientLogin');
+
 Route::get('/clientregister', function () {
     return view('clientregister');
 });
