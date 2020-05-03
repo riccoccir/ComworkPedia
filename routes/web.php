@@ -23,13 +23,13 @@ Route::get('/clientlogin', function () {
     return view('clientlogin');
 });
 
-Route::post('/postuserlogin', 'ClientController@clientLogin');
+Route::post('/postuserlogin', 'AuthController@clientLogin');
 
 Route::get('/clientregister', function () {
     return view('clientregister');
 });
 
-Route::post('/postuserregister', 'ClientController@clientRegister');
+Route::post('/postuserregister', 'AuthController@clientRegister');
 
 
 Route::get('/artistlogin', function () {
@@ -40,9 +40,7 @@ Route::get('/artistregister', function () {
     return view('artistregister');
 });
 
-Route::post('/postartistregister', 'ArtistController@artistRegister');
-
-Route::post('/postartistlogin', 'ArtistController@artistLogin');
+Route::post('/postartistregister', 'AuthController@artistRegister');
 
 
 Route::get('/commissionlist', 'CommissionListController@showList');
