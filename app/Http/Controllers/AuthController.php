@@ -17,14 +17,22 @@ class AuthController extends Controller
         return redirect('/clientlogin');
     }
 
-    public function clientRegister(Request $request){
-        // dd($request->all());
-        // MsClient::create([
-        //     'client_name' => $request ->username,
-        //     'client_email' => $request -> email,
-        //     'client_password' => bcrypt($request -> password),
-        //     'client_phoneNumber' => $request ->phonenumber
-        // ]);
+    public function clientRegister(Request $request){  
+        $this->validate($request, [
+            'username' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email|unique:msclient,client_email',
+            'phonenumber' => 'required',
+            'password' => 'required|min:8|same:retypepassword'
+        ]);
+        
+        MsClient::create([
+            'client_name' => $request ->username,
+            'client_email' => $request -> email,
+            'client_password' => bcrypt($request -> password),
+            'client_phoneNumber' => $request ->phonenumber
+        ]);
 
         return redirect('/clientlogin');
     }

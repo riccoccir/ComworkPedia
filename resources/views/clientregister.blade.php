@@ -21,31 +21,61 @@
                                     <h4 class="text-center text-white">Register as Client</h4>
                                     <div class="form-group">
                                         <label for="username" class="text-white">Username:</label><br>
-                                        <input type="text" name="username" id="username" class="form-control">
+                                        <input type="text" name="username" id="username" class="form-control {{ $errors->has('username') ? 'is-invalid' : ''}}" value="{{ old('username')}}">
+                                        @if($errors->has('username'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors ->first('username')}}
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="firstname" class="text-white">First Name:</label><br>
-                                        <input type="text" name="firstname" id="firstname" class="form-control">
+                                        <input type="text" name="firstname" id="firstname" class="form-control {{ $errors->has('firstname') ? 'is-invalid' : ''}}" value="{{ old('firstname')}}">
+                                        @if($errors->has('firstname'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors ->first('firstname')}}
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="lastname" class="text-white">Last Name:</label><br>
-                                        <input type="text" name="lastname" id="lastname" class="form-control">
+                                        <input type="text" name="lastname" id="lastname" class="form-control {{ $errors->has('lastname') ? 'is-invalid' : ''}}" value="{{ old('lastname')}}">
+                                        @if($errors->has('lastname'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors ->first('password')}}
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="email" class="text-white">Email:</label><br>
-                                        <input type="email" name="email" id="email" class="form-control">
+                                        <input type="email" name="email" id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}" value="{{ old('email')}}">
+                                        @if($errors->has('email'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors ->first('email')}}
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="text-white">Password:</label><br>
-                                        <input type="password" name="password" id="password" class="form-control">
+                                        <input type="password" name="password" id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : ''}}">
+                                        @if($errors->has('password'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors ->first('password')}}
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="retypepassword" class="text-white">Re-Type Password:</label><br>
-                                        <input type="password" name="retypepassword" id="retypepassword" class="form-control">
+                                        <input type="password" name="retypepassword" id="retypepassword" class="form-control {{ $errors->has('retypepassword') ? 'is-invalid' : ''}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="phonenumber" class="text-white">Phone Number:</label><br>
-                                        <input type="text" name="phonenumber" id="phonenumber" class="form-control">
+                                        <input type="text" name="phonenumber" id="phonenumber" class="form-control {{ $errors->has('phonenumber') ? 'is-invalid' : ''}}" value="{{ old('phonenumber')}}">
+                                        @if($errors->has('phonenumber'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors ->first('phonenumber')}}
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="form-group text-center">
                                         <input type="submit" name="submit" class="btn btn-info btn-md" value="Register">
