@@ -46,6 +46,17 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
+
+        'artist' => [
+            'driver' => 'session',
+            'provider' => 'artists',
+        ],
+        
     ],
 
     /*
@@ -69,6 +80,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => App\MsClient::class,
+        ],
+
+        'artists' => [
+            'driver' => 'eloquent',
+            'model' => App\MsArtist::class,
         ],
 
         // 'users' => [

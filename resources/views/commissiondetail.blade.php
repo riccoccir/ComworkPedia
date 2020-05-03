@@ -7,7 +7,6 @@
 <body>
     @include('layout.partial.usernavbar')
     
-    //data berhasil dioper
     {{$data -> commission_name}}
 
     @include('layout.partial.footer')

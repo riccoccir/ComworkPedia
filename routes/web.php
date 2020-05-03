@@ -23,11 +23,25 @@ Route::get('/clientlogin', function () {
     return view('clientlogin');
 });
 
-Route::post('/postuserlogin', 'ClientController@clientLogin');
+
+
+
+
+Route::post('/postuserlogin', 'Auth\ClientLoginController@login');
 
 Route::get('/clientregister', function () {
     return view('clientregister');
 });
+
+Route::prefix('client')->group(function(){
+    Route::get('/clienthome', function () {
+        return view('clienthome');
+    });
+});
+
+
+
+
 
 Route::post('/postuserregister', 'ClientController@clientRegister');
 
@@ -45,3 +59,4 @@ Route::post('/postartistregister', 'ArtistController@artistRegister');
 Route::get('/commissionlist/{typeid}', 'CommissionListController@showList');
 
 Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo');
+
