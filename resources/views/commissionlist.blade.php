@@ -25,25 +25,33 @@
       <div class="col-centered">
 
         <div class="row">
-          @for($i = 1; $i <= 12; $i++)
+          @if($allData->isEmpty())
+            <div class="align-text-center">
+              <h3>There is No Data</h3>
+            </div>
+          @endif
+          @foreach($allData as $data)
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Item One</a>
+                  <a href="#">{{$data->commission_name}}</a>
                 </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">bagian deskripsi</p>
+                <h5>Rp. {{$data->commission_price}}</h5>
+                <p class="card-text">{{$data->commission_description}}</p>
               </div>
             </div>
           </div>
-          @endfor
+          @endforeach
         </div>
         <!-- /.row -->
 
       </div>
       <!-- /.col-lg-9 -->
+      <div class="align-items-center">
+      {{$allData->links()}}
+      </div>
   </div>
   <!-- /.container -->
 
