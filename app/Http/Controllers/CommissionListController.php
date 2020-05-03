@@ -12,4 +12,11 @@ class CommissionListController extends Controller
         $data = TrCommission::where('commission_type_id', $typeid)->paginate(5);
         return view('commissionlist', ['commissioncategory' => $categorytype[$typeid - 1], 'allData' => $data]);
     }
+
+    public function showDetailedCommissionInfo($typeid, $commissionid){
+        $data = TrCommission::where('commission_id', $commissionid)->firstOrFail();
+        
+        // return redirect('/commissionlist/'.(int)$typeid.'/commission/'.(int)$commissionid.'');
+        return view('commissiondetail', ['data' => $data]);
+    }
 }

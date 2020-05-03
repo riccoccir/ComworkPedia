@@ -42,5 +42,6 @@ Route::get('/artistregister', function () {
 
 Route::post('/postartistregister', 'ArtistController@artistRegister');
 
-
 Route::get('/commissionlist/{typeid}', 'CommissionListController@showList');
+
+Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo');
