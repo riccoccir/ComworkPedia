@@ -46,7 +46,3 @@ Route::post('/postartistlogin', 'ArtistController@artistLogin');
 
 
 Route::get('/commissionlist', 'CommissionListController@showList');
-
-Route::get('/clienthome', function(){
-    return view('clienthome');
-});

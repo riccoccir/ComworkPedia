@@ -5,7 +5,7 @@
         @section('title', 'home')
     </head>
     <body>
-        @include('layout.partial.usernavbar')
+        @include('layout.partial.clientnavbar')
 
         @include('layout.partial.jumbotron')
 
