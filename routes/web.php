@@ -40,4 +40,7 @@ Route::get('/artistregister', function () {
     return view('artistregister');
 });
 
+Route::post('/postartistregister', 'AuthController@artistRegister');
+
+
 Route::get('/commissionlist', 'CommissionListController@showList');
