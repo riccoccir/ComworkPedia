@@ -5,22 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\MsClient;
+use Hash;
 
 class ClientController extends Controller
 {
-    protected function guard(){
-        return Auth::guard('client');
-    }
+    // protected function guard(){
+    //     return Auth::guard('client');
+    // }
 
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function clientLogin(Request $request){
-        $credentials = $request->only('email', 'password');
-        
-        dd(\Auth::attempt(['client_email' => $request->email, 'client_password' => $request->password]));
-        
-        // if(Auth::attempt($request->only('client_email','client_password'))){
-        //     return view('clienthome');
+        //backup code jika error
+        // $email = $request->email;
+        // $password = $request->password;
+                
+        // $user = MsClient::where('client_email', $email)->first();
+
+        // if(Hash::check($password, $user->client_password)){
+        //     return redirect('/clienthome');
         // }
+
         // return redirect('/clientlogin');
+
+    
     }
 
     public function clientRegister(Request $request){  

@@ -30,8 +30,6 @@ class ArtistController extends Controller
             'artist_instagram' => $request -> instagram,
             'artist_webiste' => $request -> website,
         ]);
-
-
         return redirect('/artistlogin');
     }
 
