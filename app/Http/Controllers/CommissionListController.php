@@ -9,13 +9,7 @@ class CommissionListController extends Controller
 {
     public function showList($typeid){
         $categorytype = ['Vector Art', 'WPAP', 'Line Art', 'Low Poly Art', 'Flat Design', 'Karikatur'];
-
-        //masih ngebug dikit
-        $type = $typeid;
-
-        $data = TrCommission::where('commission_type_id', $type)->paginate(5);
-        // $data = TrCommission::all();
-
-        return view('commissionlist', ['commissioncategory' => $categorytype[$type - 1], 'allData' => $data]);
+        $data = TrCommission::where('commission_type_id', $typeid)->paginate(5);
+        return view('commissionlist', ['commissioncategory' => $categorytype[$typeid - 1], 'allData' => $data]);
     }
 }
