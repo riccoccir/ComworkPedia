@@ -14,7 +14,7 @@
                         <div id="register-column" class="col-md-6 align-items-center" >
                             <div id="register-box" class="col-md-12 p-5 rounded" style="background-color: #222831">
                                 <form id="register-form" class="form" action="/postuserregister" method="POST">
-                                {{csrf_field()}}
+                                    {{ csrf_field() }}
                                     <div class="text-center mb-4">
                                         <img src="images/logo-white.png" alt="logo" style="height:60px; width: 100px">
                                     </div>

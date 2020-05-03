@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use Auth;
 
 class LoginController extends Controller
 {
@@ -37,24 +35,5 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest:client')->except('logout');
-        $this->middleware('guest:artist')->except('logout');
     }
-
-    // public function showClientLoginForm(){
-    //     return view('/clientlogin', ['url' => 'client']);
-    // }
-
-    // public function clientLogin(Request $request){
-    //     $this->validate($request, [
-    //         'email' => 'required|email',
-    //         'password' => 'required|min:8'
-    //     ]);
-
-    //     if(Auth::guard('client') -> attempt(['client_email'=>$request->email, 'client_password'=>$request->password])){
-    //         return redirect()->intended('/clienthome');
-    //     }
-
-    //     return back()->withInput($request->only('email'));
-    // }
 }

@@ -8,13 +8,8 @@ use App\MsClient;
 
 class ClientController extends Controller
 {
-
-    public function __construct(){
-        $this->middleware('auth:client');
-    }
-
     public function clientLogin(Request $request){
-        // dd($request->all());
+        dd($request->all());
         if(Auth::attempt($request->only('client_email','client_password'))){
             return view('clienthome');
         }
