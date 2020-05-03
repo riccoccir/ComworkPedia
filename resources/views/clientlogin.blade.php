@@ -21,11 +21,21 @@
                                     <h4 class="text-center text-white">Log in with your client account</h4>
                                     <div class="form-group">
                                         <label for="email" class="text-white">Email:</label><br>
-                                        <input type="text" name="email" id="email" class="form-control">
+                                        <input type="text" name="email" id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}">
+                                        @if($errors->has('email'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors ->first('email')}}
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="text-white">Password:</label><br>
-                                        <input type="password" name="password" id="password" class="form-control">
+                                        <input type="password" name="password" id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : ''}}">
+                                        @if($errors->has('password'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors ->first('password')}}
+                                            </div>
+                                        @endif
                                     </div>
                                     <label for="remember-me" class="text-white"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
                                     <div class="form-group text-center">
