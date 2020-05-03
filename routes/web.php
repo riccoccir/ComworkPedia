@@ -44,6 +44,3 @@ Route::post('/postartistregister', 'ArtistController@artistRegister');
 
 
 Route::get('/commissionlist', 'CommissionListController@showList');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
