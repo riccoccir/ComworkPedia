@@ -18,6 +18,8 @@ return [
         'passwords' => 'users',
     ],
 
+    // Auth::guard('client')->check($credentials)
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -46,6 +48,16 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'client',
+        ],
+
+        'client-api' => [
+            'driver' => 'token',
+            'provider' => 'client',
+        ],
     ],
 
     /*
@@ -71,6 +83,13 @@ return [
             'model' => App\User::class,
         ],
 
+        'client' => [
+            'driver' => 'eloquent',
+            'model' => App\MsClient::class,
+        ],
+
+
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -95,6 +114,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'client' => [
+            'provider' => 'client',
             'table' => 'password_resets',
             'expire' => 60,
         ],
