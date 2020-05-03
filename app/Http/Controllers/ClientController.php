@@ -9,8 +9,8 @@ use App\MsClient;
 class ClientController extends Controller
 {
     public function clientLogin(Request $request){
-        dd($request->all());
-        if(Auth::attempt($request->only('client_email','client_password'))){
+        // dd($request->all());
+        if(Auth::attempt(['client_email' => $request->email,'client_password' -> $request->password])){
             return view('clienthome');
         }
         return redirect('/clientlogin');
