@@ -21,6 +21,7 @@ class CreateMsArtistTable extends Migration
             $table->string('artist_phoneNumber');
             $table->string('artist_instagram');
             $table->string('artist_webiste');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

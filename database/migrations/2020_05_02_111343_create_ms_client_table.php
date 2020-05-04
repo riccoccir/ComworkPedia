@@ -19,6 +19,7 @@ class CreateMsClientTable extends Migration
             $table->string('client_email')->unique();
             $table->string('client_password');
             $table->string('client_phoneNumber');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
