@@ -46,6 +46,10 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'artist' => [
+            'driver' => 'session',
+            'provider' => 'artists',
+        ],
     ],
 
     /*
@@ -69,6 +73,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'artists' => [
+            'driver' => 'eloquent',
+            'model' => App\MsArtist::class,
         ],
 
         // 'users' => [
@@ -95,6 +103,11 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'users' => [
+            'provider' => 'artists',
             'table' => 'password_resets',
             'expire' => 60,
         ],
