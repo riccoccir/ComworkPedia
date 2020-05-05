@@ -48,3 +48,5 @@ Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionList
 Auth::routes();
 
 Route::get('/clienthome', 'HomeController@index')->name('home');
+
+Route::get('/commission/history', 'HiredCommissionHistoryController@index');

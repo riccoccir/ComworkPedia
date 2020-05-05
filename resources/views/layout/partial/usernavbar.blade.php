@@ -12,7 +12,7 @@
         <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><input type="button" class="btn" value="Daftar Commission" style="color: white; background-color: #00ADB5"></a>
+                    <a class="nav-link" href="/commission/history"><input type="button" class="btn" value="History Commission" style="color: white; background-color: #00ADB5"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><input type="button" class="btn" value="Halo User" style="color: white; background-color: #222831"></a>

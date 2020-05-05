@@ -18,7 +18,7 @@
   @include('layout.partial.usernavbar')
 
   <!-- Page Content -->
-  <div class="container mt-5">
+  <div class="container mt-5 md-5" style="min-height: 600px">
       <h1 class="mt-5 mb-5">Commission list for {{ $commissioncategory }}</h1>
       <!-- /.col-lg-3 -->
 

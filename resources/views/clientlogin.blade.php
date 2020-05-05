@@ -7,7 +7,7 @@
     <body>
         @include('layout.partial.guestnavbar')
 
-        <div class="container mt-5 md-5">
+        <div class="container mt-5 md-5" style="min-height: 600px">
             <div id="login">
                 <div class="p-5">
                     <div id="login-row" class="row justify-content-center align-items-center">

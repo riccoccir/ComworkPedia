@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="website" class="text-white">Website:</label><br>
-                                        <input type="text" name="website" id="website" class="form-control">
+                                        <input type="text" name="website" id="website" class="form-control" value="-">
                                     </div>
                                     <div class="form-group text-center">
                                         <input type="submit" name="submit" class="btn btn-info btn-md" value="Register">
