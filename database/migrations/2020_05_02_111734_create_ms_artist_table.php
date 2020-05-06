@@ -14,7 +14,7 @@ class CreateMsArtistTable extends Migration
     public function up()
     {
         Schema::create('msartist', function (Blueprint $table) {
-            $table->bigIncrements('artist_id');
+            $table->bigIncrements('id');
             $table->string('artist_name');
             $table->string('artist_email')->unique();
             $table->string('artist_password');

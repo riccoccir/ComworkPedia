@@ -8,6 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Client_Login extends Authenticatable
 {
-    protected $table = 'mspengurus';
+    protected $table = 'msclient';
     
 }

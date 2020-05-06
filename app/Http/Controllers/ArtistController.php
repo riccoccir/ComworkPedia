@@ -47,7 +47,7 @@ class ArtistController extends Controller
         if(count($dataArtist)>0){
             //Berhasil Login untuk
           
-            Auth::guard('artist')->LoginUsingId($dataArtist[0]['id']);
+            Auth::guard('artist')->LoginUsingId($dataArtist[0]['artist_id']);
 
             return redirect('/');
         }else{

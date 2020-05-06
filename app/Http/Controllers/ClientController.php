@@ -37,7 +37,7 @@ class ClientController extends Controller
     }
     
     public function login(Request $kiriman){
-        $dataClient = MsClient::where('artist_email',$kiriman->email)->where('artist_password',$kiriman->password)->get();
+        $dataClient = MsClient::where('client_email',$kiriman->email)->where('client_password',$kiriman->password)->get();
 
         if(count($dataClient)>0){
             //Berhasil Login

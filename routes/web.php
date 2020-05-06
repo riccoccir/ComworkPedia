@@ -29,10 +29,13 @@ Route::get('/clientlogout','ClientController@logout');
 
 Route::get('/clientregister', function () {
     return view('clientregister');
-});
+})->middleware('guest');
 
 Route::post('/postuserregister', 'ClientController@clientRegister');
 
+Route::get('/clienthome', function(){
+    return view('clienthome');
+});
 
 Route::get('/artistlogin', function () {
     return view('artistlogin');
