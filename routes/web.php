@@ -25,6 +25,8 @@ Route::get('/clientlogin', function () {
 
 Route::post('/postClientLogin', 'ClientController@login');
 
+Route::post('/postArtistLogin', 'ArtistController@login');
+
 Route::get('/clientlogout','ClientController@logout');
 
 Route::get('/clientregister', function () {
