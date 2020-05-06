@@ -38,6 +38,11 @@ class ClientController extends Controller
     }
     
     public function login(Request $kiriman){
+        $this->validate($kiriman, [
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+        ]);
+        
         $dataClient = MsClient::where('client_email',$kiriman->email)->first();
 
         if($dataClient && Hash::check($kiriman->password, $dataClient->client_password)){
