@@ -20,13 +20,13 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">New Commission</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="newcommission-form" class="form" action="{{ route('/artist/postnewcommission')}}" method="POST">
+                    <form id="newcommission-form" class="form" action="{{ url('/artist/postnewcommission')}}" method="POST">
                         {{ csrf_field() }}
                         <h4 class="text-center text-white">New Commission</h4>
                         <div class="form-group">
