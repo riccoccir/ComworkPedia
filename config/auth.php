@@ -90,7 +90,11 @@ return [
         ],
         'artists' => [
             'driver' => 'eloquent',
-            'model' => App\MsArtist::class,
+            'model' => App\Artist_Login::class,
+        ],
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => App\Client_Login::class,
         ],
 
         // 'users' => [

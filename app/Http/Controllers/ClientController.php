@@ -36,7 +36,26 @@ class ClientController extends Controller
         return redirect('/clientlogin');
     }
     
+    public function login(Request $kiriman){
+        $dataClient = MsClient::where('artist_email',$kiriman->email)->where('artist_password',$kiriman->password)->get();
+
+        if(count($dataClient)>0){
+            //Berhasil Login
+
+            Auth::guard('client')->LoginUsingId($dataClient[0]['id']);
+            
+            return redirect('/clienthome');
+        }else{
+
+            return "login gagal";
+        }
+    }
+
     public function logout(){
+        if(Auth::guard('client')->check()){
+            Auth::guard('client')->logout();
+        }
+
         return redirect('/homepage');
     }
 }

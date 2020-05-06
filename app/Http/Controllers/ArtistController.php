@@ -40,6 +40,22 @@ class ArtistController extends Controller
         return redirect('/artistlogin');
     }
 
+
+    public function login(Request $kiriman){
+        $dataArtist = MsArtist::where('artist_email',$kiriman->email)->where('artist_password',$kiriman->password)->get();
+
+        if(count($dataArtist)>0){
+            //Berhasil Login untuk
+          
+            Auth::guard('artist')->LoginUsingId($dataArtist[0]['id']);
+
+            return redirect('/');
+        }else{
+
+            return "login gagal";
+        }
+    }
+
     public function logout(){
         return redirect('/homepage');
     }

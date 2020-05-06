@@ -23,7 +23,9 @@ Route::get('/clientlogin', function () {
     return view('clientlogin');
 });
 
-Route::post('/postuserlogin', 'ClientController@clientLogin');
+Route::post('/postClientLogin', 'ClientController@login');
+
+Route::get('/clientlogout','ClientController@logout');
 
 Route::get('/clientregister', function () {
     return view('clientregister');
@@ -46,7 +48,5 @@ Route::get('/commissionlist/{typeid}', 'CommissionListController@showList');
 
 Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo');
 Auth::routes();
-
-Route::get('/clienthome', 'HomeController@index')->name('home');
 
 Route::get('/commission/history', 'HiredCommissionHistoryController@index');
