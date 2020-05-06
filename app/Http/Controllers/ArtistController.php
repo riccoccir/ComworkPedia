@@ -8,9 +8,14 @@ use App\MsArtist;
 
 class ArtistController extends Controller
 {
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
 
-    public function artistLogin(){
-        
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->intended('dashboard');
+        }
     }
 
     public function artistRegister(Request $request){

@@ -50,6 +50,20 @@ return [
             'driver' => 'session',
             'provider' => 'artists',
         ],
+        'api-artist' => [
+            'driver' => 'token',
+            'provider' => 'artists',
+            'hash' => false,
+        ],
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
+        'api-client' => [
+            'driver' => 'token',
+            'provider' => 'clients',
+            'hash' => false,
+        ],
     ],
 
     /*
