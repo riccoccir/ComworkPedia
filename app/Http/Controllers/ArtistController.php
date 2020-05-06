@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\MsArtist;
+use Illuminate\Support\Facades\Hash;
+
 
 class ArtistController extends Controller
 {
@@ -21,7 +23,7 @@ class ArtistController extends Controller
     public function artistRegister(Request $request){
         $this->validate($request, [
             'username' => 'required',
-            'email' => 'required|email|unique:msclient,client_email',
+            'email' => 'required|email|unique:msartist,artist_email',
             'phonenumber' => 'required',
             'password' => 'required|min:8|same:retypepassword',
             'instagram' => 'required',
@@ -37,25 +39,33 @@ class ArtistController extends Controller
             'artist_webiste' => $request -> website,
         ]);
 
-        return redirect('/artistlogin');
+        return redirect('/artist/dashboard');
     }
 
 
     public function login(Request $kiriman){
-        $dataArtist = MsArtist::where('artist_email',$kiriman->email)->where('artist_password',$kiriman->password)->get();
+        $this->validate($kiriman, [
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+        ]);
 
-        if(count($dataArtist)>0){
+        $dataArtist = MsArtist::where('artist_email',$kiriman->email)->first();
+
+        if($dataArtist && Hash::check($kiriman->password, $dataArtist->artist_password)){
             //Berhasil Login untuk
           
             Auth::guard('artist')->LoginUsingId($dataArtist[0]['id']);
 
-            return redirect('/artistdashboard');
+            return redirect('/artist/dashboard');
         }else{
 
             return "login gagal";
         }
     }
     public function logout(){
-        return redirect('/homepage');
+        if(Auth::guard('artist')->check()){
+            Auth::guard('artist')->logout();
+        }
+        return redirect('/home');
     }
 }

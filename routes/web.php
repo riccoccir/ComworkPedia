@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+
+//route untuk client dan guest
 Route::get('/home', function () {
     return view('homepage');
 });
@@ -38,7 +40,16 @@ Route::post('/postuserregister', 'ClientController@clientRegister');
 Route::get('/clienthome', function(){
     return view('clienthome');
 });
+Route::get('/commissionlist/{typeid}', 'CommissionListController@showList');
 
+Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo');
+Auth::routes();
+
+Route::get('/commission/history', 'HiredCommissionHistoryController@index');
+
+
+
+//route untuk artist
 Route::get('/artistlogin', function () {
     return view('artistlogin');
 });
@@ -49,9 +60,6 @@ Route::get('/artistregister', function () {
 
 Route::post('/postartistregister', 'ArtistController@artistRegister');
 
-Route::get('/commissionlist/{typeid}', 'CommissionListController@showList');
+Route::get('/artist/dashboard', 'ArtistDashboardController@showPage');
 
-Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo');
-Auth::routes();
-
-Route::get('/commission/history', 'HiredCommissionHistoryController@index');
+Route::get('/artist/logout', 'ArtistController@logout');

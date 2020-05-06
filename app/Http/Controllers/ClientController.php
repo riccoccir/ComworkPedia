@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\MsClient;
+use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
@@ -37,9 +38,9 @@ class ClientController extends Controller
     }
     
     public function login(Request $kiriman){
-        $dataClient = MsClient::where('client_email',$kiriman->email)->where('client_password',$kiriman->password)->get();
+        $dataClient = MsClient::where('client_email',$kiriman->email)->first();
 
-        if(count($dataClient)>0){
+        if($dataClient && Hash::check($kiriman->password, $dataClient->client_password)){
             //Berhasil Login
 
             Auth::guard('client')->LoginUsingId($dataClient[0]['id']);
