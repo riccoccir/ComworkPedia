@@ -14,8 +14,6 @@ class HeaderHireTransactionSeeder extends Seeder
     public function run()
     {
         $table = new HeaderHireTransaction;
-        $table->artist_id = 10;
-        $table->commission_id = 3;
         $table->client_id = 2;
         $table->payment_id = 1;
         $table->image_from_client = 'http://lorempixel.com/640/480/cats';
@@ -25,8 +23,6 @@ class HeaderHireTransactionSeeder extends Seeder
         $table->save();
         
         $table = new HeaderHireTransaction;
-        $table->artist_id = 5;
-        $table->commission_id = 8;
         $table->client_id = 1;
         $table->payment_id = 3;
         $table->image_from_client = 'http://lorempixel.com/640/480/dogs';
@@ -36,8 +32,6 @@ class HeaderHireTransactionSeeder extends Seeder
         $table->save();
             
         $table = new HeaderHireTransaction;
-        $table->artist_id = 2;
-        $table->commission_id = 6;
         $table->client_id = 3;
         $table->payment_id = 2;
         $table->image_from_client = 'http://lorempixel.com/640/480/cars';
