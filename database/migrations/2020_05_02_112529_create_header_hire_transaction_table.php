@@ -21,6 +21,7 @@ class CreateHeaderHireTransactionTable extends Migration
             $table->string('image_from_artist');
             $table->string('transaction_status');
             $table->integer('payment_amount');
+            $table->mediumText('transfer_receipt');
             $table->timestamps();
             
         });
