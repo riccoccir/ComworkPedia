@@ -19,6 +19,10 @@ class CreateMsCommissionTypeTable extends Migration
             $table->string('commission_type_description');
             $table->timestamps();
         });
+
+        // Schema::table('mscommissiontype',function($table){
+        //     $table->primary('commission_type_id');
+        // });
     }
 
     /**
