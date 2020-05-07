@@ -15,7 +15,8 @@ class CreateTrCommissionTable extends Migration
     {
         Schema::create('trcommission', function (Blueprint $table) {
             $table->bigIncrements('commission_id');
-            $table->integer('commission_type_id');
+            $table->unsignedBigInteger('commission_type_id');
+            $table->unsignedBigInteger('artist_id');
             $table->string('commission_name');
             $table->string('commission_description');
             $table->integer('slot_available');
@@ -23,6 +24,12 @@ class CreateTrCommissionTable extends Migration
             $table->date('commission_duration');
             $table->string('commission_image');
             $table->timestamps();
+            
+        });
+
+        Schema::table('trcommission',function($table){
+            $table->foreign('artist_id')->references('id')->on('msartist')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('commission_type_id')->references('commission_type_id')->on('mscommissiontype')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

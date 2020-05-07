@@ -18,6 +18,10 @@ class CreateMsPaymentTable extends Migration
             $table->string('payment_type_name');
             $table->timestamps();
         });
+
+        // Schema::table('mspayment',function($table){
+        //     $table->primary('payment_id');
+        // });
     }
 
     /**
