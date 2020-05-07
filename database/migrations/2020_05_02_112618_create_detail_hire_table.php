@@ -15,9 +15,8 @@ class CreateDetailHireTable extends Migration
     {
         Schema::create('detailhire', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('hire_id');
-            $table->integer('artist_id');
-            $table->integer('commission_id');
+            $table->foreign('hire_id')->references('hire_id')->on('headerhiretransaction');
+            $table->primary('commission_id')->foreign('commission_id')->references('commission_id')->on('trcommission');
             $table->timestamps();
         });
     }

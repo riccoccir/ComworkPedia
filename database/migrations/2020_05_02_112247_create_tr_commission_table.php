@@ -15,7 +15,8 @@ class CreateTrCommissionTable extends Migration
     {
         Schema::create('trcommission', function (Blueprint $table) {
             $table->bigIncrements('commission_id');
-            $table->integer('commission_type_id');
+            $table->foreign('commission_type_id')->references('commission_type_id')->on('mscommissiontype');
+            $table->foreign('artist_id')->references('id')->on('msartist');
             $table->string('commission_name');
             $table->string('commission_description');
             $table->integer('slot_available');

@@ -15,10 +15,8 @@ class CreateHeaderHireTransactionTable extends Migration
     {
         Schema::create('headerhiretransaction', function (Blueprint $table) {
             $table->bigIncrements('hire_id');
-            $table->integer('artist_id');
-            $table->integer('commission_id');
-            $table->integer('client_id');
-            $table->integer('payment_id');
+            $table->foreign('client_id')->references('id')->on('msclient');
+            $table->references('payment_id')->references('payment_id')->on('mspayment');
             $table->string('image_from_client');
             $table->string('image_from_artist');
             $table->string('transaction_status');
