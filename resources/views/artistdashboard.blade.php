@@ -193,11 +193,11 @@
                                 <input type="file" name="imageexample" id="imageexample" class="form-control {{ $errors->has('imageexample') ? 'is-invalid' : ''}}" value="{{ old('imageexample')}}">
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <input type="submit" name="submit" class="btn btn-primary" value="Tambah Commission">
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Tambah Commission">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
