@@ -19,4 +19,8 @@ class CommissionListController extends Controller
         // return redirect('/commissionlist/'.(int)$typeid.'/commission/'.(int)$commissionid.'');
         return view('commissiondetail', ['data' => $data]);
     }
+
+    public function hireCommission(Request $request){
+        $userId = (Auth::guard('client')->user())['id'];
+    }
 }
