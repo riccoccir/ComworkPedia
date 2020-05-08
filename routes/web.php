@@ -37,19 +37,17 @@ Route::post('/postuserregister', 'ClientController@clientRegister');
 Auth::routes();
 
 //route untuk client
-Route::group(['guard' => 'artist'], function(){
-    Route::get('/clientlogout','ClientController@logout');
+
+    Route::get('/clientlogout','ClientController@logout')->middleware('auth:client');
     
     Route::get('/clienthome', function(){
         return view('clienthome');
-    });
-    Route::get('/commissionlist/{typeid}', 'CommissionListController@showList');
+    })->middleware('auth:client');
+    Route::get('/commissionlist/{typeid}', 'CommissionListController@showList')->middleware('auth:client');
     
-    Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo');
+    Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo')->middleware('auth:client');
     
-    Route::get('/commission/history', 'HiredCommissionHistoryController@index');
-
-});
+    Route::get('/commission/history', 'HiredCommissionHistoryController@index')->middleware('auth:client');
 
 Route::get('/artistlogin', function () {
     return view('artistlogin');
@@ -66,10 +64,9 @@ Route::post('/postartistregister', 'ArtistController@artistRegister')->middlewar
 
 
 //route untuk artist
-Route::group(['guard' => 'client'], function(){
-    Route::get('/artist/dashboard', 'ArtistDashboardController@showPage');
+
+    Route::get('/artist/dashboard', 'ArtistDashboardController@showPage')->middleware('auth:artist');
     
-    Route::post('/artist/newcommission', 'ArtistDashboardController@createNewCommission');
+    Route::post('/artist/newcommission', 'ArtistDashboardController@createNewCommission')->middleware('auth:artist');
     
-    Route::get('/artist/logout', 'ArtistController@logout');
-});
+    Route::get('/artist/logout', 'ArtistController@logout')->middleware('auth:artist');

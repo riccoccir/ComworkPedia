@@ -113,11 +113,11 @@ class ArtistDashboardController extends Controller
             $highlights->commission_image = '';
         }
 
+        dd($request);
         $commission->save();
 
         return view('artistdashboard');
 
-        dd($request);
 
         
 
