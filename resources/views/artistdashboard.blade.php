@@ -44,14 +44,17 @@
                             <td>{{ $row->commission_price }}</td>
                             <td>
                                 <div class="d-flex">
-                                    <input type="button" value="Edit" class="btn btn-info mr-2">
-                                    <input type="button" value="Delete" class="btn btn-danger mr-2">
+                                    <a href="/artist/dashboard/edit/{{ $row->commission_id }}"><input type="button" value="Edit" class="btn btn-info mr-2"></a>
+                                    <a href="/artist/dashboard/delete/{{ $row->commission_id }}"><input type="button" value="Delete" class="btn btn-danger mr-2"></a>
                                 </div>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                @if(\Session::has('cantdelete'))
+                    <h3>{{!! \Sessin::get('cantdelete') !!}}</h3>
+                @endif
             </div>
             @endif
         </div>
@@ -149,7 +152,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="newcommission-form" class="form" action="/artist/newcommission" method="POST">
+                    <form id="newcommission-form" class="form" action="/artist/newcommission" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <h4 class="text-center text-white">New Commission</h4>
                         <div class="form-group">

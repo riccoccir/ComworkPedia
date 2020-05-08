@@ -39,7 +39,7 @@ class ArtistController extends Controller
             'artist_webiste' => $request -> website,
         ]);
 
-        return redirect('/artist/dashboard');
+        return redirect('/artistlogin');
     }
 
 

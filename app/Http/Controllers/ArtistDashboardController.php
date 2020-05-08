@@ -6,6 +6,7 @@ use App\HeaderHireTransaction;
 use App\TrCommission;
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 
 class ArtistDashboardController extends Controller
 {
@@ -87,41 +88,38 @@ class ArtistDashboardController extends Controller
 
     public function createNewCommission(Request $request){
         $userId = Auth::guard('artist')->user();
+        
         $this->validate($request, [
             'commissionname' => 'required',
             'description' => 'required|min:10',
             'price' => 'required|min:1',
-            'password' => 'required|min:1',
+            'slots' => 'required|min:1',
             'duration' => 'required',
-            'category' => 'required'
+            'category' => 'required',
+            'imageexample' => 'required'
         ]);
         $commission = new TrCommission();
 
-        $commission->commission_name = $request->name('commissionname');
-        $commission->commission_description = $request->name('description');
-        $commission->slot_available = $request->name('slots');
-        $commission->commission_price = $request->name('price');
-        $commission->commission_duration = $request->name('duration');
-        if($request->hasfile('imageexample')){
+        $commission->artist_id = $userId['id'];
+        $commission->commission_name = $request->input('commissionname');
+        $commission->commission_description = $request->input('description');
+        $commission->slot_available = $request->input('slots');
+        $commission->commission_price = $request->input('price');
+        $commission->commission_duration = $request->input('duration');
+        $commission->commission_type_id = $request->input('category');
+        if($request->hasFile('imageexample')){
             $file = $request->file('imageexample');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
             $file->move('uploads/commission/',$filename);
-            $highlights->commission_image = $filename;
+            $commission->commission_image = $filename;
         }else{
             return $request;
-            $highlights->commission_image = '';
+            $commission->commission_image = '';
         }
-
-        dd($request);
         $commission->save();
 
-        return view('artistdashboard');
-
-
-        
-
-
+        return redirect('/artist/dashboard');
     }
 
     public function showPage(){
@@ -146,5 +144,25 @@ class ArtistDashboardController extends Controller
         ->with('commission', $allCommission)
         ->with('pending', $pendingList)
         ->with('onprogress', $onProgressList);
+    }
+
+    public function deleteCommission($id){
+        $commission = HeaderHireTransaction::where('commission_id', $id)
+        ->join('detailhire', 'detailhire.hire_id', '=', 'headerhiretransaction.hire_id')->get();
+
+        if($commission->isEmpty()){
+            DB::delete('delete from trcommission where commission_id = ?',[$id]);
+            return redirect('/artist/dashboard');
+        }
+        else{
+            return redirect('/artist/dashboard')->withErrors('cantdelete', 'Tidak bisa hapus commission yang masih memiliki kontrak!');
+        }
+        
+
+        
+    }
+
+    public function editCommission(){
+
     }
 }

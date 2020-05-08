@@ -19,7 +19,7 @@
 //route untuk client dan guest
 Route::get('/home', function () {
     return view('homepage');
-});
+})->middleware('guest');
 
 Route::get('/clientlogin', function () {
     return view('clientlogin');
@@ -70,3 +70,7 @@ Route::post('/postartistregister', 'ArtistController@artistRegister')->middlewar
     Route::post('/artist/newcommission', 'ArtistDashboardController@createNewCommission')->middleware('auth:artist');
     
     Route::get('/artist/logout', 'ArtistController@logout')->middleware('auth:artist');
+
+    Route::get('/artist/dashboard/delete/{id}', 'ArtistDashboardController@deleteCommission')->middleware('auth:artist');
+
+    Route::put('/artist/dashboard/delete/{id}', 'ArtistDashboardController@editCommission')->middleware('auth:artist');
