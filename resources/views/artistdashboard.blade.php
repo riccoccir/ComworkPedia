@@ -149,7 +149,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="newcommission-form" class="form" action="{{ url('/artist/newcommission')}}" method="POST">
+                    <form id="newcommission-form" class="form" action="/artist/newcommission" method="POST">
                         {{ csrf_field() }}
                         <h4 class="text-center text-white">New Commission</h4>
                         <div class="form-group">

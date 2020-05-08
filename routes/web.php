@@ -69,7 +69,7 @@ Route::post('/postartistregister', 'ArtistController@artistRegister');
 Route::group(['guard' => 'client'], function(){
     Route::get('/artist/dashboard', 'ArtistDashboardController@showPage');
     
-    Route::get('/artist/newcommission', 'ArtistDashboardController@CreateNewCommission');
+    Route::post('/artist/newcommission', 'ArtistDashboardController@createNewCommission');
     
     Route::get('/artist/logout', 'ArtistController@logout');
 });
