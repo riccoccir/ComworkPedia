@@ -87,10 +87,6 @@ class ArtistDashboardController extends Controller
 
     public function createNewCommission(Request $request){
         $userId = Auth::guard('artist')->user();
-
-
-        dd($request);
-
         $this->validate($request, [
             'commissionname' => 'required',
             'description' => 'required|min:10',
@@ -99,6 +95,31 @@ class ArtistDashboardController extends Controller
             'duration' => 'required',
             'category' => 'required'
         ]);
+        $commission = new TrCommission();
+
+        $commission->commission_name = $request->name('commissionname');
+        $commission->commission_description = $request->name('description');
+        $commission->slot_available = $request->name('slots');
+        $commission->commission_price = $request->name('price');
+        $commission->commission_duration = $request->name('duration');
+        if($request->hasfile('imageexample')){
+            $file = $request->file('imageexample');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/commission/',$filename);
+            $highlights->commission_image = $filename;
+        }else{
+            return $request;
+            $highlights->commission_image = '';
+        }
+
+        $commission->save();
+
+        return view('artistdashboard');
+
+        dd($request);
+
+        
 
 
     }
