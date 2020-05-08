@@ -85,6 +85,24 @@ class ArtistDashboardController extends Controller
         //
     }
 
+    public function createNewCommission(Request $request){
+        $userId = Auth::guard('artist')->user();
+
+
+        dd($request);
+
+        $this->validate($request, [
+            'commissionname' => 'required',
+            'description' => 'required|min:10',
+            'price' => 'required|min:1',
+            'password' => 'required|min:1',
+            'duration' => 'required',
+            'category' => 'required'
+        ]);
+
+
+    }
+
     public function showPage(){
         $userId = Auth::guard('artist')->user();
 

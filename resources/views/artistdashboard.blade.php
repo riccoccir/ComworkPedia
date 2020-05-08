@@ -9,7 +9,10 @@
 <body>
     @include('layout.partial.artistnavbar')
 
+    
     <div class="container mt-5" style="min-height: 600px">
+        <h1>Halo, {{ (Auth::guard('artist')->user())['artist_name'] }}</h1>
+        
         <div name="createnewcommission" class='mt-5'>
             <a class="nav-link" href="#" data-toggle="modal" data-target="#NewCommissionModal"><input type="button" class="btn btn-info" value="Create New Commission"></a>
         </div>
@@ -41,7 +44,7 @@
                             <td>{{ $row->commission_price }}</td>
                             <td>
                                 <div class="d-flex">
-                                    <input type="button" value="Edit" class="btn btn-success mr-2">
+                                    <input type="button" value="Edit" class="btn btn-info mr-2">
                                     <input type="button" value="Delete" class="btn btn-danger mr-2">
                                 </div>
                             </td>
@@ -146,7 +149,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="newcommission-form" class="form" action="{{ url('/artist/postnewcommission')}}" method="POST">
+                    <form id="newcommission-form" class="form" action="{{ url('/artist/newcommission')}}" method="POST">
                         {{ csrf_field() }}
                         <h4 class="text-center text-white">New Commission</h4>
                         <div class="form-group">
@@ -171,7 +174,18 @@
                         </div>
                         <div class="form-group">
                             <label for="category" class="text">Category:</label><br>
-                            <input type="text" name="category" id="category" class="form-control {{ $errors->has('category') ? 'is-invalid' : ''}}" value="{{ old('category')}}">
+                            <input type="radio" name="category" id="vector" value="1">
+                            <label for="vector" class="text">Vector</label><br>
+                            <input type="radio" name="category" id="wpap" value="2">
+                            <label for="wpap" class="text">WPAP</label><br>
+                            <input type="radio" name="category" id="lineart" value="3">
+                            <label for="lineart" class="text">Line Art</label><br>
+                            <input type="radio" name="category" id="lowpoly" value="4">
+                            <label for="lowpoly" class="text">Low Poly Art</label><br>
+                            <input type="radio" name="category" id="flatdesign" value="5">
+                            <label for="flatdesign" class="text">Flat Design Art</label><br>
+                            <input type="radio" name="category" id="karikatur" value="6">
+                            <label for="karikatur" class="text">Karikatur</label><br>
                         </div>
                         <div class="form-group">
                             <div class="custom-file">

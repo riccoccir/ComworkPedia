@@ -27,9 +27,6 @@ Route::get('/clientlogin', function () {
 
 Route::post('/postClientLogin', 'ClientController@login');
 
-Route::post('/postArtistLogin', 'ArtistController@login');
-
-Route::get('/clientlogout','ClientController@logout');
 
 Route::get('/clientregister', function () {
     return view('clientregister');
@@ -37,22 +34,28 @@ Route::get('/clientregister', function () {
 
 Route::post('/postuserregister', 'ClientController@clientRegister');
 
-Route::get('/clienthome', function(){
-    return view('clienthome');
-});
-Route::get('/commissionlist/{typeid}', 'CommissionListController@showList');
-
-Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo');
 Auth::routes();
 
-Route::get('/commission/history', 'HiredCommissionHistoryController@index');
+//route untuk client
+Route::group(['guard' => 'artist'], function(){
+    Route::get('/clientlogout','ClientController@logout');
+    
+    Route::get('/clienthome', function(){
+        return view('clienthome');
+    });
+    Route::get('/commissionlist/{typeid}', 'CommissionListController@showList');
+    
+    Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo');
+    
+    Route::get('/commission/history', 'HiredCommissionHistoryController@index');
 
+});
 
-
-//route untuk artist
 Route::get('/artistlogin', function () {
     return view('artistlogin');
 });
+
+Route::post('/postArtistLogin', 'ArtistController@login');
 
 Route::get('/artistregister', function () {
     return view('artistregister');
@@ -60,10 +63,13 @@ Route::get('/artistregister', function () {
 
 Route::post('/postartistregister', 'ArtistController@artistRegister');
 
-Route::get('/artist/dashboard', 'ArtistDashboardController@showPage');
 
-Route::get('/user', function(){
-    return Auth::user();
+
+//route untuk artist
+Route::group(['guard' => 'client'], function(){
+    Route::get('/artist/dashboard', 'ArtistDashboardController@showPage');
+    
+    Route::get('/artist/newcommission', 'ArtistDashboardController@CreateNewCommission');
+    
+    Route::get('/artist/logout', 'ArtistController@logout');
 });
-
-Route::get('/artist/logout', 'ArtistController@logout');
