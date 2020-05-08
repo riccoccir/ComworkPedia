@@ -10,8 +10,128 @@
     @include('layout.partial.artistnavbar')
 
     <div class="container mt-5" style="min-height: 600px">
-        <div class='mt-5'>
+        <div name="createnewcommission" class='mt-5'>
             <a class="nav-link" href="#" data-toggle="modal" data-target="#NewCommissionModal"><input type="button" class="btn btn-info" value="Create New Commission"></a>
+        </div>
+
+        <div name="commissionlist" class='mt-5'>
+            <h3>Your Commission List</h3>
+            @if($commission->isEmpty())
+            <div class="align-text-center">
+                <h3>There is No Data</h3>
+            </div>
+            @else
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Commission Name</th>
+                            <th>Slot</th>
+                            <th>Duration</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($commission as $row)
+                        <tr>
+                            <td>{{ $row->commission_name }}</td>
+                            <td>{{ $row->slot_available }}</td>
+                            <td>{{ $row->commission_duration }}</td>
+                            <td>{{ $row->commission_price }}</td>
+                            <td>
+                                <div class="d-flex">
+                                    <input type="button" value="Edit" class="btn btn-success mr-2">
+                                    <input type="button" value="Delete" class="btn btn-danger mr-2">
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            @endif
+        </div>
+
+        <div name="pendingofferlist" class='mt-5'>
+            <h3>Pending Offer List</h3>
+            @if($pending->isEmpty())
+            <div class="align-text-center">
+                <h3>There is No Data</h3>
+            </div>
+            @else
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Commission Name</th>
+                            <th>Job Details</th>
+                            <th>Job Price</th>
+                            <th>Paymet Receipt</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($pending as $row)
+                        <tr>
+                            <td>{{ $row->commission_name }}</td>
+                            <td>{{ $row->slot_available }}</td>
+                            <td>{{ $row->payment_amount }}</td>
+                            <td>ntar ada gambar</td>
+                            <td>Waiting</td>
+                            <td>
+                                <div class="d-flex">
+                                    <input type="button" value="Accept" class="btn btn-success mr-2">
+                                    <input type="button" value="Reject" class="btn btn-danger mr-2">
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            @endif
+        </div>
+
+        <div name="onprogresslist" class='mt-5'>
+            <h3>On Progress List</h3>
+            @if($onprogress->isEmpty())
+            <div class="align-text-center">
+                <h3>There is No Data</h3>
+            </div>
+            @else
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Commission ID</th>
+                            <th>Client Name</th>
+                            <th>Status</th>
+                            <th>Image from Client</th>
+                            <th>Image from Artist</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($pending as $row)
+                        <tr>
+                            <td>{{ $row->commission_id }}</td>
+                            <td>{{ $row->client_name }}</td>
+                            <td>{{ $row->transaction_status }}</td>
+                            <td><a href="{{ $row->image_from_client }}">image from client</a></td>
+                            <td><input type="text" name="resultimage" id="resultimage" value="{{ $row->image_from_artist }}"></td>
+                            <td>
+                                <div class="d-flex">
+                                    <input type="button" value="Submit" class="btn btn-info mr-2">
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            @endif
         </div>
     </div>
 
@@ -50,6 +170,10 @@
                             <input type="text" name="duration" id="duration" class="form-control {{ $errors->has('duration') ? 'is-invalid' : ''}}" value="{{ old('duration')}}">
                         </div>
                         <div class="form-group">
+                            <label for="category" class="text">Category:</label><br>
+                            <input type="text" name="category" id="category" class="form-control {{ $errors->has('category') ? 'is-invalid' : ''}}" value="{{ old('category')}}">
+                        </div>
+                        <div class="form-group">
                             <div class="custom-file">
                                 <label for="imageexample" class="text">Artwork Example:</label><br>
                                 <input type="file" name="imageexample" id="imageexample" class="form-control {{ $errors->has('imageexample') ? 'is-invalid' : ''}}" value="{{ old('imageexample')}}">
@@ -58,7 +182,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                   <input type="submit" name="submit" class="btn btn-primary" value="Tambah Commission">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Tambah Commission">
                 </div>
             </div>
         </div>

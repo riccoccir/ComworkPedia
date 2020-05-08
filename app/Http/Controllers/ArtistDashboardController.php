@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\HeaderHireTransaction;
+use App\TrCommission;
 use Illuminate\Http\Request;
+use Auth;
 
 class ArtistDashboardController extends Controller
 {
@@ -83,6 +86,26 @@ class ArtistDashboardController extends Controller
     }
 
     public function showPage(){
-        return view('artistdashboard');
+        $userId = Auth::guard('artist')->user();
+
+        $allCommission = TrCommission::where('artist_id', $userId['id'])->get();
+
+        $pendingList = HeaderHireTransaction::where('transaction_status', 'on progress')
+        ->join('detailhire','detailhire.hire_id','=','headerhiretransaction.hire_id')
+        ->join('trcommission','trcommission.commission_id','=','detailhire.commission_id')
+        ->where('transaction_status', 'on progress')
+        ->where('trcommission.artist_id', $userId['id'])->get();
+
+        $onProgressList = HeaderHireTransaction::where('transaction_status', 'on progress')
+        ->join('msclient','msclient.id','=', 'headerhiretransaction.client_id')
+        ->join('detailhire','detailhire.hire_id','=','headerhiretransaction.hire_id')
+        ->join('trcommission','trcommission.commission_id','=','detailhire.commission_id')
+        ->where('transaction_status', 'on progress')
+        ->where('trcommission.artist_id', $userId['id'])->get();
+
+        return view('artistdashboard')
+        ->with('commission', $allCommission)
+        ->with('pending', $pendingList)
+        ->with('onprogress', $onProgressList);
     }
 }

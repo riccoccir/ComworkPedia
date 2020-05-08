@@ -54,11 +54,11 @@ class ArtistController extends Controller
         if($dataArtist && Hash::check($kiriman->password, $dataArtist->artist_password)){
             //Berhasil Login untuk
           
-            Auth::guard('artist')->LoginUsingId($dataArtist[0]['id']);
+            Auth::guard('artist')->LoginUsingId($dataArtist['id']);
+            // Auth::guard('artist')->login($dataArtist);
 
             return redirect('/artist/dashboard');
         }else{
-
             return "login gagal";
         }
     }

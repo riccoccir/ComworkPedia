@@ -62,4 +62,8 @@ Route::post('/postartistregister', 'ArtistController@artistRegister');
 
 Route::get('/artist/dashboard', 'ArtistDashboardController@showPage');
 
+Route::get('/user', function(){
+    return Auth::user();
+});
+
 Route::get('/artist/logout', 'ArtistController@logout');
