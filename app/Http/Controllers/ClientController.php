@@ -48,7 +48,7 @@ class ClientController extends Controller
         if($dataClient && Hash::check($kiriman->password, $dataClient->client_password)){
             //Berhasil Login
 
-            Auth::guard('client')->LoginUsingId($dataClient[0]['id']);
+            Auth::guard('client')->LoginUsingId($dataClient['id']);
             
             return redirect('/clienthome');
         }else{
@@ -62,6 +62,6 @@ class ClientController extends Controller
             Auth::guard('client')->logout();
         }
 
-        return redirect('/homepage');
+        return redirect('/home');
     }
 }
