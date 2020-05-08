@@ -22,7 +22,7 @@ class CreateTrCommissionTable extends Migration
             $table->integer('slot_available');
             $table->integer('commission_price');
             $table->date('commission_duration');
-            $table->string('commission_image');
+            $table->mediumText('commission_image')->nullable();
             $table->timestamps();
             
         });
