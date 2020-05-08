@@ -58,8 +58,6 @@ Route::get('/artistregister', function () {
     return view('artistregister');
 });
 
-Route::post('/artist/postnewcommission','ArtistDashboardController@store');
-
 Route::post('/postartistregister', 'ArtistController@artistRegister');
 
 Route::get('/artist/dashboard', 'ArtistDashboardController@showPage');
