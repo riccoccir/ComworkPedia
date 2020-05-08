@@ -19,7 +19,7 @@
 //route untuk client dan guest
 Route::get('/home', function () {
     return view('homepage');
-})->middleware('guest');
+});
 
 Route::get('/clientlogin', function () {
     return view('clientlogin');
