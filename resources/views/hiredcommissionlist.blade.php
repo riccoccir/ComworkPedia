@@ -13,23 +13,28 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Artist</th>
                         <th>Commission Name</th>
                         <th>Price</th>
                         <th>Image (From Client)</th>
                         <th>Result from Artist</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach($data as $row)
                     <tr>
-                        <td>{{ $row->artist_name }}</td>
                         <td>{{ $row->commission_name }}</td>
                         <td>{{ $row->payment_amount }}</td>
-                        <td>{{ $row->image_from_client }}</td>
-                        <td>{{ $row->image_from_artist }}</td>
+                        <td><a href="{{ $row->image_from_client }}" target="_blank">{{ $row->image_from_client }}</a></td>
+                        <td><a href="{{ $row->image_from_artist }}" target="_blank">{{ $row->image_from_artist }}</a></td>
                         <td>{{ $row->transaction_status }}</td>
+                        <td>
+                            <div class="d-flex">
+                                <input type="button" value="Accept" class="btn btn-info mr-2">
+                                <input type="button" value="Revision" class="btn btn-primary mr-2">
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

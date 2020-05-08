@@ -15,11 +15,10 @@ class HiredCommissionHistoryController extends Controller
     public function index()
     {
         $data = DB::table('headerhiretransaction')
-        ->join('msclient','msclient.client_id', '=', 'headerhiretransaction.client_id')
+        ->join('msclient','msclient.id', '=', 'headerhiretransaction.client_id')
         ->join('mspayment','mspayment.payment_id', '=', 'headerhiretransaction.payment_id')
         ->join('detailhire', 'detailhire.hire_id', '=', 'headerhiretransaction.hire_id')
-        ->join('trcommission', 'trcommission.commission_id', '=', 'detailhire.commission_id')
-        ->join('msartist', 'msartist.artist_id', '=', 'detailhire.artist_id')->get();
+        ->join('trcommission', 'trcommission.commission_id', '=', 'detailhire.commission_id')->get();
 
         return view('hiredcommissionlist', compact('data'));
     }

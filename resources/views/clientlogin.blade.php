@@ -21,7 +21,7 @@
                                     <h4 class="text-center text-white">Log in with your client account</h4>
                                     <div class="form-group">
                                         <label for="email" class="text-white">Email:</label><br>
-                                        <input type="text" name="email" id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}">
+                                        <input type="text" name="email" id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}" value="{{ old('email') }}">
                                         @if($errors->has('email'))
                                             <div class="invalid-feedback">
                                                 {{ $errors ->first('email')}}
