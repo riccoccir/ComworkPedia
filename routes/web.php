@@ -23,9 +23,9 @@ Route::get('/home', function () {
 
 Route::get('/clientlogin', function () {
     return view('clientlogin');
-});
+})->middleware('guest');
 
-Route::post('/postClientLogin', 'ClientController@login');
+Route::post('/postClientLogin', 'ClientController@login')->middleware('guest');
 
 
 Route::get('/clientregister', function () {
@@ -53,15 +53,15 @@ Route::group(['guard' => 'artist'], function(){
 
 Route::get('/artistlogin', function () {
     return view('artistlogin');
-});
+})->middleware('guest');
 
-Route::post('/postArtistLogin', 'ArtistController@login');
+Route::post('/postArtistLogin', 'ArtistController@login')->middleware('guest');
 
 Route::get('/artistregister', function () {
     return view('artistregister');
-});
+})->middleware('guest');
 
-Route::post('/postartistregister', 'ArtistController@artistRegister');
+Route::post('/postartistregister', 'ArtistController@artistRegister')->middleware('guest');
 
 
 
