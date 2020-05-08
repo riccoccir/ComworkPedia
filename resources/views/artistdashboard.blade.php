@@ -26,7 +26,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="newcommission-form" class="form" action="{{ url('/artist/postnewcommission')}}" method="POST">
+                    <form id="newcommission-form" class="form" action="'/artist/postnewcommission'" method="POST">
                         {{ csrf_field() }}
                         <h4 class="text-center text-white">New Commission</h4>
                         <div class="form-group">
