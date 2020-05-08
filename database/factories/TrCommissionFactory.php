@@ -14,6 +14,5 @@ $factory->define(TrCommission::class, function (Faker $faker) {
         'slot_available' => $faker->numberBetween($min = 0 , $max = 10),
         'commission_price' => $faker->biasedNumberBetween($min = 50000, $max = 150000, $function = 'sqrt'),
         'commission_duration' => $faker->dateTime($max = 'now', $timezone = null),
-        'commission_image' => $faker->imageUrl($width = 640 ,$height =480,'cats')
     ];
 });
