@@ -19,7 +19,9 @@ class CreateMsArtistTable extends Migration
             $table->string('artist_email')->unique();
             $table->string('artist_password');
             $table->string('artist_phoneNumber');
+            $table->string('bank_name')->nullable();
             $table->string('bank_account_number')->nullable();
+            $table->string('account_ownership')->nullable();
             $table->string('artist_instagram');
             $table->string('artist_webiste');
             $table->rememberToken();

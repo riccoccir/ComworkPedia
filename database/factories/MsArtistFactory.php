@@ -13,6 +13,8 @@ $factory->define(MsArtist::class, function (Faker $faker) {
         'artist_phoneNumber' => $faker->phoneNumber(),
         'artist_instagram'=> $faker->userName(),
         'artist_webiste' => $faker->domainName(),
-        'bank_account_number'=> $faker->bankAccountNumber()
+        'bank_name'=> $faker->company(),
+        'bank_account_number'=> $faker->bankAccountNumber(),
+        'account_ownership'=>$faker->lastname()
     ];
 });
