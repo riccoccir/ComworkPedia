@@ -88,9 +88,6 @@ class ArtistDashboardController extends Controller
     public function createNewCommission(Request $request){
         $userId = Auth::guard('artist')->user();
 
-
-        dd($request);
-
         $this->validate($request, [
             'commissionname' => 'required',
             'description' => 'required|min:10',
@@ -99,7 +96,6 @@ class ArtistDashboardController extends Controller
             'duration' => 'required',
             'category' => 'required'
         ]);
-
 
     }
 
