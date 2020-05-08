@@ -12,6 +12,7 @@ $factory->define(MsArtist::class, function (Faker $faker) {
         'artist_password'=> $faker->password(),
         'artist_phoneNumber' => $faker->phoneNumber(),
         'artist_instagram'=> $faker->userName(),
-        'artist_webiste' => $faker->domainName()
+        'artist_webiste' => $faker->domainName(),
+        'bank_account_number'=> $faker->bankAccountNumber()
     ];
 });

@@ -13,7 +13,7 @@ class MsArtist extends Model
     protected $table = 'msartist';
     protected $guard = 'artist';
 
-    protected $fillable = ['artist_email', 'artist_name', 'artist_password', 'artist_phoneNumber', 'artist_instagram', 'artist_webiste'];
+    protected $fillable = ['artist_email', 'artist_name', 'artist_password', 'artist_phoneNumber', 'artist_instagram', 'artist_webiste','bank_account_number'];
     
     protected $hidden = ['artist_password','remember_token'];
 }
