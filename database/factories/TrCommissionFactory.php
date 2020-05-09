@@ -13,6 +13,6 @@ $factory->define(TrCommission::class, function (Faker $faker) {
         'commission_description' => $faker->paragraph($nbSentences = 1, $variableNbSenteces = true),
         'slot_available' => $faker->numberBetween($min = 0 , $max = 10),
         'commission_price' => $faker->biasedNumberBetween($min = 50000, $max = 150000, $function = 'sqrt'),
-        'commission_duration' => $faker->dateTime($max = 'now', $timezone = null),
+        'commission_duration' => $faker->numberBetween($min = 1, $max = 7),
     ];
 });
