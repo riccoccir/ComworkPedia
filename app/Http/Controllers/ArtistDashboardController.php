@@ -127,23 +127,31 @@ class ArtistDashboardController extends Controller
 
         $allCommission = TrCommission::where('artist_id', $userId['id'])->get();
 
-        $pendingList = HeaderHireTransaction::where('transaction_status', 'on progress')
+        $pendingList = HeaderHireTransaction::where('transaction_status', 'waiting')
         ->join('detailhire','detailhire.hire_id','=','headerhiretransaction.hire_id')
         ->join('trcommission','trcommission.commission_id','=','detailhire.commission_id')
-        ->where('transaction_status', 'on progress')
         ->where('trcommission.artist_id', $userId['id'])->get();
 
         $onProgressList = HeaderHireTransaction::where('transaction_status', 'on progress')
         ->join('msclient','msclient.id','=', 'headerhiretransaction.client_id')
         ->join('detailhire','detailhire.hire_id','=','headerhiretransaction.hire_id')
         ->join('trcommission','trcommission.commission_id','=','detailhire.commission_id')
-        ->where('transaction_status', 'on progress')
         ->where('trcommission.artist_id', $userId['id'])->get();
 
         return view('artistdashboard')
         ->with('commission', $allCommission)
         ->with('pending', $pendingList)
         ->with('onprogress', $onProgressList);
+    }
+
+    public function acceptOrRejectOffer($postId, $status){
+        if($status == 'onprogress'){
+            $status = 'on progress';
+        }
+
+        HeaderHireTransaction::where('hire_id', $postId)->update(['transaction_status' => $status]);
+
+        return redirect('/artist/dashboard');
     }
 
     public function deleteCommission($id){
@@ -156,13 +164,14 @@ class ArtistDashboardController extends Controller
         }
         else{
             return redirect('/artist/dashboard')->withErrors('cantdelete', 'Tidak bisa hapus commission yang masih memiliki kontrak!');
-        }
-        
-
-        
+        }   
     }
 
     public function editCommission(){
 
+    }
+
+    public function submitLinkImage(Request $newImageLink){
+        
     }
 }

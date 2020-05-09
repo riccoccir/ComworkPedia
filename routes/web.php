@@ -74,3 +74,7 @@ Route::post('/postartistregister', 'ArtistController@artistRegister')->middlewar
     Route::get('/artist/dashboard/delete/{id}', 'ArtistDashboardController@deleteCommission')->middleware('auth:artist');
 
     Route::put('/artist/dashboard/delete/{id}', 'ArtistDashboardController@editCommission')->middleware('auth:artist');
+
+    Route::get('/artist/dashboard/{postId}/status/{status}', 'ArtistDashboardController@acceptOrRejectOffer')->middleware('auth:artist');
+
+    Route::post()->middleware('authj::artist');

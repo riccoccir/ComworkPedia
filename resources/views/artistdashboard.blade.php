@@ -9,10 +9,10 @@
 <body>
     @include('layout.partial.artistnavbar')
 
-    
+
     <div class="container mt-5" style="min-height: 600px">
         <h1>Halo, {{ (Auth::guard('artist')->user())['artist_name'] }}</h1>
-        
+
         <div name="createnewcommission" class='mt-5'>
             <a class="nav-link" href="#" data-toggle="modal" data-target="#NewCommissionModal"><input type="button" class="btn btn-info" value="Create New Commission"></a>
         </div>
@@ -53,7 +53,7 @@
                     </tbody>
                 </table>
                 @if(\Session::has('cantdelete'))
-                    <h3>{{!! \Sessin::get('cantdelete') !!}}</h3>
+                <h3>{{!! \Sessin::get('cantdelete') !!}}</h3>
                 @endif
             </div>
             @endif
@@ -88,8 +88,8 @@
                             <td>Waiting</td>
                             <td>
                                 <div class="d-flex">
-                                    <input type="button" value="Accept" class="btn btn-success mr-2">
-                                    <input type="button" value="Reject" class="btn btn-danger mr-2">
+                                    <a href="/artist/dashboard/{{ $row->hire_id }}/status/onprogress"><input type="button" value="Accept" class="btn btn-success mr-2"></a>
+                                    <a href="/artist/dashboard/{{ $row->hire_id }}/status/rejected""><input type=" button" value="Reject" class="btn btn-danger mr-2"></a>
                                 </div>
                             </td>
                         </tr>
@@ -120,18 +120,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($pending as $row)
+                        @foreach($onprogress as $row)
                         <tr>
                             <td>{{ $row->commission_id }}</td>
                             <td>{{ $row->client_name }}</td>
                             <td>{{ $row->transaction_status }}</td>
                             <td><a href="{{ $row->image_from_client }}">image from client</a></td>
-                            <td><input type="text" name="resultimage" id="resultimage" value="{{ $row->image_from_artist }}"></td>
-                            <td>
-                                <div class="d-flex">
-                                    <input type="button" value="Submit" class="btn btn-info mr-2">
-                                </div>
-                            </td>
+                            <form id="newimage" action="" method="post">
+                                <td><input type="text" name="resultimage" id="resultimage" value="{{ $row->image_from_artist }}"></td>
+                                <td>
+                                    <div class="d-flex">
+                                        <input type="button" value="Submit" class="btn btn-info mr-2">
+                                    </div>
+                                </td>
+                            </form>
                         </tr>
                         @endforeach
                     </tbody>
@@ -196,10 +198,10 @@
                                 <input type="file" name="imageexample" id="imageexample" class="form-control {{ $errors->has('imageexample') ? 'is-invalid' : ''}}" value="{{ old('imageexample')}}">
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="submit" name="submit" class="btn btn-primary" value="Tambah Commission">
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Tambah Commission">
+                </div>
                 </form>
             </div>
         </div>
