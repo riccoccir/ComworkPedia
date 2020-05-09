@@ -111,7 +111,7 @@
                             <td>
                                 <div class="text-center">
                                     <a href="/artist/dashboard/{{ $row->hire_id }}/status/onprogress"><input type="button" value="Accept" class="btn btn-success mr-2"></a>
-                                    <a href="/artist/dashboard/{{ $row->hire_id }}/status/rejected""><input type=" button" value="Reject" class="btn btn-danger mr-2"></a>
+                                    <a href="/artist/dashboard/{{ $row->hire_id }}/status/rejected""><input type="button" value="Reject" class="btn btn-danger mr-2"></a>
                                 </div>
                             </td>
                         </tr>
@@ -179,7 +179,6 @@
                 <div class="modal-body">
                     <form id="newcommission-form" class="form" action="/artist/newcommission" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <h4 class="text-center text-white">New Commission</h4>
                         <div class="form-group">
                             <label for="commissionname" class="text">Commission Name:</label><br>
                             <input type="text" name="commissionname" id="commissionname" class="form-control {{ $errors->has('commissionname') ? 'is-invalid' : ''}}" value="{{ old('commissionname')}}">
