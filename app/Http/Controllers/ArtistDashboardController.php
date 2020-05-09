@@ -124,6 +124,42 @@ class ArtistDashboardController extends Controller
         return redirect('/artist/dashboard');
     }
 
+    public function editExistingCommission($id, Request $request){
+        $userId = Auth::guard('artist')->user();
+
+        $this->validate($request, [
+            'commissionname' => 'required',
+            'description' => 'required|min:10',
+            'price' => 'required|min:1',
+            'slots' => 'required|min:1',
+            'duration' => 'required',
+            'category' => 'required',
+            'imageexample' => 'required'
+        ]);
+        $commission = TrCommission::where('commission_id', $id);
+
+        $commission->artist_id = $userId['id'];
+        $commission->commission_name = $request->input('commissionname');
+        $commission->commission_description = $request->input('description');
+        $commission->slot_available = $request->input('slots');
+        $commission->commission_price = $request->input('price');
+        $commission->commission_duration = $request->input('duration');
+        $commission->commission_type_id = $request->input('category');
+        if ($request->hasFile('imageexample')) {
+            $file = $request->file('imageexample');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/commission/', $filename);
+            $commission->commission_image = $filename;
+        } else {
+            return $request;
+            $commission->commission_image = '';
+        }
+        $commission->save();
+
+        return redirect('/artist/dashboard');
+    }
+
     public function showPage()
     {
         $userId = Auth::guard('artist')->user();
