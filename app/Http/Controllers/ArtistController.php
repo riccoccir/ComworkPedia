@@ -10,15 +10,15 @@ use Illuminate\Support\Facades\Hash;
 
 class ArtistController extends Controller
 {
-    public function authenticate(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
+    // public function authenticate(Request $request)
+    // {
+    //     $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return redirect()->intended('dashboard');
-        }
-    }
+    //     if (Auth::attempt($credentials)) {
+    //         // Authentication passed...
+    //         return redirect()->intended('dashboard');
+    //     }
+    // }
 
     public function artistRegister(Request $request){
         $this->validate($request, [

@@ -43,12 +43,34 @@
                             <td>{{ $row->commission_duration }}</td>
                             <td>{{ $row->commission_price }}</td>
                             <td>
-                                <div class="d-flex">
+                                <div class="text-center">
                                     <a href="/artist/dashboard/edit/{{ $row->commission_id }}"><input type="button" value="Edit" class="btn btn-info mr-2"></a>
-                                    <a href="/artist/dashboard/delete/{{ $row->commission_id }}"><input type="button" value="Delete" class="btn btn-danger mr-2"></a>
+                                    <!-- <a href="/artist/dashboard/delete/{{ $row->commission_id }}"><input type="button" value="Delete" class="btn btn-danger mr-2"></a> -->
+                                    <a href="#" data-toggle="modal" data-target="#deletefirmationmodal-{{ $row->commission_id }}"><input type="button" value="Delete" class="btn btn-danger mr-2"></a>
                                 </div>
                             </td>
                         </tr>
+
+                        <!-- Modal confirmation delete-->
+                        <div class="modal fade" id="deletefirmationmodal-{{ $row->commission_id }}" tabindex="-1" role="dialog" aria-labelledby="deletefirmationmodal" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Confirm Delete</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Anda yakin ingin menghapus Commission ini?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="/artist/dashboard/delete/{{ $row->commission_id }}"><input type="button" class="btn btn-primary" value="Hapus"></a>
+                                        <a href="# "><input type="button" class="btn btn-primary" value="Batal"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
                     </tbody>
                 </table>
@@ -87,7 +109,7 @@
                             <td>ntar ada gambar</td>
                             <td>Waiting</td>
                             <td>
-                                <div class="d-flex">
+                                <div class="text-center">
                                     <a href="/artist/dashboard/{{ $row->hire_id }}/status/onprogress"><input type="button" value="Accept" class="btn btn-success mr-2"></a>
                                     <a href="/artist/dashboard/{{ $row->hire_id }}/status/rejected""><input type=" button" value="Reject" class="btn btn-danger mr-2"></a>
                                 </div>
@@ -126,7 +148,8 @@
                             <td>{{ $row->client_name }}</td>
                             <td>{{ $row->transaction_status }}</td>
                             <td><a href="{{ $row->image_from_client }}">image from client</a></td>
-                            <form id="newimage" action="artist/submit/image/{{ $row->hire_id }}" method="post">
+                            <form id="newimage" action="/artist/submit/image/{{ $row->hire_id }}" method="POST">
+                                {{ csrf_field() }}
                                 <td><input type="text" name="resultimage" id="resultimage" value="{{ $row->image_from_artist }}"></td>
                                 <td>
                                     <div class="d-flex">
@@ -174,7 +197,7 @@
                             <input type="number" name="slots" id="slots" class="form-control {{ $errors->has('slots') ? 'is-invalid' : ''}}" value="{{ old('slots')}}">
                         </div>
                         <div class="form-group">
-                            <label for="duration" class="text">Duration:</label><br>
+                            <label for="duration" class="text">Duration (in days):</label><br>
                             <input type="text" name="duration" id="duration" class="form-control {{ $errors->has('duration') ? 'is-invalid' : ''}}" value="{{ old('duration')}}">
                         </div>
                         <div class="form-group">
