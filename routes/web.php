@@ -77,4 +77,4 @@ Route::post('/postartistregister', 'ArtistController@artistRegister')->middlewar
 
     Route::get('/artist/dashboard/{postId}/status/{status}', 'ArtistDashboardController@acceptOrRejectOffer')->middleware('auth:artist');
 
-    Route::post()->middleware('authj::artist');
+    Route::post('artist/submit/image/{id}', 'ArtistDashboardController@submitLinkImage')->middleware('auth::artist');

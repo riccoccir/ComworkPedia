@@ -144,20 +144,11 @@ class ArtistDashboardController extends Controller
         ->with('onprogress', $onProgressList);
     }
 
-    public function acceptOrRejectOffer($postId, $status){
-        if($status == 'onprogress'){
-            $status = 'on progress';
-        }
-
-        HeaderHireTransaction::where('hire_id', $postId)->update(['transaction_status' => $status]);
-
-        return redirect('/artist/dashboard');
-    }
-
+    
     public function deleteCommission($id){
         $commission = HeaderHireTransaction::where('commission_id', $id)
         ->join('detailhire', 'detailhire.hire_id', '=', 'headerhiretransaction.hire_id')->get();
-
+        
         if($commission->isEmpty()){
             DB::delete('delete from trcommission where commission_id = ?',[$id]);
             return redirect('/artist/dashboard');
@@ -166,12 +157,24 @@ class ArtistDashboardController extends Controller
             return redirect('/artist/dashboard')->withErrors('cantdelete', 'Tidak bisa hapus commission yang masih memiliki kontrak!');
         }   
     }
-
+    
     public function editCommission(){
+        
+    }
+    
+    public function submitLinkImage($id, Request $newImageLink){
+        HeaderHireTransaction::where('hire_id', $id)->update(['transaction_status' => $newImageLink->resultimage]);
 
+        return redirect('/artist/dashboard');
     }
 
-    public function submitLinkImage(Request $newImageLink){
-        
+    public function acceptOrRejectOffer($postId, $status){
+        if($status == 'onprogress'){
+            $status = 'on progress';
+        }
+
+        HeaderHireTransaction::where('hire_id', $postId)->update(['transaction_status' => $status]);
+
+        return redirect('/artist/dashboard');
     }
 }

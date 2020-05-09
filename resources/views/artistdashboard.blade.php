@@ -126,11 +126,11 @@
                             <td>{{ $row->client_name }}</td>
                             <td>{{ $row->transaction_status }}</td>
                             <td><a href="{{ $row->image_from_client }}">image from client</a></td>
-                            <form id="newimage" action="" method="post">
+                            <form id="newimage" action="artist/submit/image/{{ $row->hire_id }}" method="post">
                                 <td><input type="text" name="resultimage" id="resultimage" value="{{ $row->image_from_artist }}"></td>
                                 <td>
                                     <div class="d-flex">
-                                        <input type="button" value="Submit" class="btn btn-info mr-2">
+                                        <input type="submit" value="Submit" class="btn btn-info mr-2">
                                     </div>
                                 </td>
                             </form>
