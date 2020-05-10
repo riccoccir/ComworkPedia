@@ -8,11 +8,11 @@
 @include('layout.partial.usernavbar')
 <div class="jumbotron text-center">
   <div class="Header">
-  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    <li data-target="#carouselExampleInterval" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleInterval" data-slide-to="1"></li>
+    <li data-target="#carouselExampleInterval" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -37,26 +37,24 @@
       </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
-    <!-- <h1>Carousel<br>Art  Work</h1> 
-    <br>
-    <p>1/8</p> -->
+    
   </div>
   
 </div>
 
-        <div class="container" style="background-color:#eeeeee;">
+        <div class="container" style="background-color:#eeeeee; padding-bottom:20px">
         <div class="body container" >
         <div class="row container">   
-            <div class="col-sm-4 col-md-offset-2 container" style="margin-top: 50px;">
+            <div class="col-sm-4 col-md-offset-2 container" style="margin-top: 50px; margin-left:70px">
             <span><h3>Mendesain Logo 24 jam jadi!</h3></span>
             <span><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p></span>
             <span><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p></span>
@@ -87,7 +85,7 @@
             </div>  
         </div>
         <div class="row align-items-center container">
-            <div class="card col-sm-4 col-md-offset-2 container" style="background-color: white; margin-top: 30px; height: 200px;">
+            <div class="card col-sm-4 col-md-offset-2 container" style="background-color: white; margin-top: 30px; height: 200px; margin-left:80px">
                 <div class="card-body container">
                     <br>
                     <div class="row">
@@ -106,7 +104,7 @@
                 </div>
             </div> 
             <div class="col-sm-4 col-md-offset-2"> 
-                <div class="card" style="margin-top: 40px;"  >
+                <div class="card" style="margin-top: 40px;">
                     <div class="card-body" style="background-color: white; margin-left: 20px; margin-top: 20px;">
                     
                         <h5 class="card-title" style="font-weight: bold;"> Verified Data</h5>
@@ -122,7 +120,7 @@
             </div>
         </div> 
             
-        <div class="row container" style="margin-left: 170px;">
+        <div class="row container" style="margin-left: 50px;">
             <div class="col-sm-4 col-md-offset-2">
             <br>
             <h3>Commision Description</h3>
@@ -130,7 +128,7 @@
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>  
         </div>
-        <div class="row container" style="margin-left: 170px;">
+        <div class="row container" style="margin-left: 50px;">
             <div class="col-sm-4 col-md-offset-2">
             <br>
             <h3>Work Procedure</h3>
