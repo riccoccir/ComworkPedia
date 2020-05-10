@@ -112,7 +112,6 @@
                         <b>KTP</b><br>
                         <b>Phone Number</b><br>
                         <b>Email</b><br>
-                        <b>facebook</b><br>
                         <b>Instagram</b><br>
                         <b>Website</b>    
                     </div>
