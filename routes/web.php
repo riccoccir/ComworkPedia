@@ -49,6 +49,11 @@ Auth::routes();
     
     Route::get('/commission/history', 'HiredCommissionHistoryController@index')->middleware('auth:client');
 
+    Route::get('/commission/accept/{id}', 'HiredCommissionHistoryController@acceptCommissionResult')->middleware('auth:client');
+
+    Route::get('/commission/revision/{id}', 'HiredCommissionHistoryController@askForRevision')->middleware('auth:client');
+
+
 Route::get('/artistlogin', function () {
     return view('artistlogin');
 })->middleware('guest');
