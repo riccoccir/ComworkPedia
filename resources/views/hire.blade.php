@@ -109,7 +109,6 @@
                     
                         <h5 class="card-title" style="font-weight: bold;"> Verified Data</h5>
                         <br>
-                        <b>KTP</b><br>
                         <b>Phone Number</b><br>
                         <b>Email</b><br>
                         <b>Instagram</b><br>
