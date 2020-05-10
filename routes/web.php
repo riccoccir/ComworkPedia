@@ -17,6 +17,8 @@
 
 
 //route untuk client dan guest
+
+
 Route::get('/home', function () {
     return view('homepage');
 })->middleware('guest');
@@ -53,6 +55,7 @@ Auth::routes();
 
     Route::get('/commission/revision/{id}', 'HiredCommissionHistoryController@askForRevision')->middleware('auth:client');
 
+    Route::get('/hire','HireController@index')->middleware('auth:client');
 
 Route::get('/artistlogin', function () {
     return view('artistlogin');
