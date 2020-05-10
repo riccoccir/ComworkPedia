@@ -55,7 +55,7 @@
         <div class="body container" >
         <div class="row container">   
             <div class="col-sm-4 col-md-offset-2 container" style="margin-top: 50px; margin-left:70px">
-            <span><h3>Mendesain Logo 24 jam jadi!</h3></span>
+            <span><h3>{{$data->commission_name}}</h3></span>
             <span><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p></span>
             <span><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p></span>
             <span><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p></span>
@@ -67,7 +67,7 @@
             </div>
             <div class="col-sm-4 col-md-offset-2 rounded" style="background-color: white;margin-top: 50px;height: 550px;">
                 <div class=" mt-5 text-center" > <img class="rounded-circle" src="social.png" alt="human" style="height: 100 px; width: 100px; margin-top: 10px;"></div>
-                <div class="mt-5 text-center"><h3>Artist Name</h3></div>
+                <div class="mt-5 text-center"><h3>{{$data -> artist_name}}</h3></div>
             <hr>
             <div style="margin-top: 150px;">
                 <div class="row">

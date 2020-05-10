@@ -57,6 +57,8 @@ Auth::routes();
 
     Route::get('/hire/{typeid}/hire-commission/{commissionid}','HireController@index')->middleware('auth:client');
 
+    
+
 Route::get('/artistlogin', function () {
     return view('artistlogin');
 })->middleware('guest');
