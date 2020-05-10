@@ -14,9 +14,11 @@ class CommissionListController extends Controller
     }
 
     public function showDetailedCommissionInfo($typeid, $commissionid){
-        $data = TrCommission::where('commission_id', $commissionid)->firstOrFail();
+        $data = TrCommission::where('commission_id', $commissionid)
+        ->join('msartist', 'msartist.id', '=', 'trcommission.artist_id')
+        ->join('mscommissiontype', 'mscommissiontype.commission_type_id', '=', 'trcommission.commission_type_id')->firstOrFail();
         
         // return redirect('/commissionlist/'.(int)$typeid.'/commission/'.(int)$commissionid.'');
-        return view('commissiondetail', ['data' => $data]);
+        return view('hire', ['data' => $data]);
     }
 }

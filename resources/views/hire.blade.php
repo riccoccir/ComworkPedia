@@ -97,7 +97,7 @@
                 </div>
                 <div class="Card-footer container">        
                     <div class="row text-center">
-                        <p class="card-text col-md-5">Duration</p>
+                        <p class="card-text col-md-5">{{ $data->commission_duration}} hari</p>
                         <div class="col-md-3 col-sm-4 "><h5 style="color:#00adb5;">Price</h5></div>
                         <div class="col-md-3 col-sm-4 "><button type="button " class="btn btn-default btn-sm" style="background-color:#00adb5; color: white; margin-bottom: 10px;">Make <br> Commision</button></div>                  
                     </div>            
