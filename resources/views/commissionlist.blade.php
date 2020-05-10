@@ -40,6 +40,10 @@
                   </h4>
                   <h5>Rp. {{$data->commission_price}}</h5>
                   <p class="card-text">{{$data->commission_description}}</p>
+                  <div display="flex"  style="justify-content:flex-end">
+                  <a href="/hire/{{$data->commission_type_id}}/hire-commission/{{$data->commission_id}}">
+                  <input type="button" class="btn btn-primary" value="Hire"></button> </a>
+                </div>
                 </div>
               </div>
             </div>
