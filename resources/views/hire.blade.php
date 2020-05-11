@@ -16,21 +16,21 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="{{url('uploads/commission/$data->commission_image.jpg')}}" class="d-block w-100" alt="Linear Art" width="400px" height="300px">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="..." class="d-block w-100" alt="Linear Art" width="400px" height="300px">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="..." class="d-block w-100" alt="Linear Art" width="400px" height="300px">
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -66,7 +66,7 @@
             <span><button type="button" class="btn btn-default" style="background-color: white">Category Tag</button></span>
             </div>
             <div class="col-sm-4 col-md-offset-2 rounded" style="background-color: white;margin-top: 50px;height: 550px;">
-                <div class=" mt-5 text-center" > <img class="rounded-circle" src="social.png" alt="human" style="height: 100 px; width: 100px; margin-top: 10px;"></div>
+                <div class=" mt-5 text-center" > <img class="rounded-circle" src="{{url('/images/social.png')}}" alt="human" style="height: 100 px; width: 100px; margin-top: 10px;"></div>
                 <div class="mt-5 text-center"><h3>{{$data -> artist_name}}</h3></div>
             <hr>
             <div style="margin-top: 150px;">
