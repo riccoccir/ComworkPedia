@@ -6,7 +6,7 @@
 </head>
 <body>
 @include('layout.partial.usernavbar')
-<div class="jumbotron text-center">
+
   <div class="Header">
   <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -45,7 +45,7 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+
     
   </div>
   
