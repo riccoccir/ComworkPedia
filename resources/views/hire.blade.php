@@ -98,7 +98,7 @@
                 <div class="Card-footer container">        
                     <div class="row text-center">
                         <p class="card-text col-md-5">{{ $data->commission_duration}} hari</p>
-                        <div class="col-md-3 col-sm-4 "><h5 style="color:#00adb5;">Price</h5></div>
+                        <div class="col-md-3 col-sm-4 "><h6 style="color:#00adb5;">{{$data->commission_price}}</h6></div>
                         <div class="col-md-3 col-sm-4 "><button type="button " class="btn btn-default btn-sm" style="background-color:#00adb5; color: white; margin-bottom: 10px;">Make <br> Commision</button></div>                  
                     </div>            
                 </div>
@@ -109,10 +109,10 @@
                     
                         <h5 class="card-title" style="font-weight: bold;"> Verified Data</h5>
                         <br>
-                        <b>Phone Number</b><br>
-                        <b>Email</b><br>
-                        <b>Instagram</b><br>
-                        <b>Website</b>    
+                        <b>Phone Number</b> <b> {{$data->artist_phoneNumber}}</b><br>
+                        <b>Email </b> <b>{{$data->artist_email}}</b><br>
+                        <b>Instagram {{$data->artist_instagram}}</b><br>
+                        <b>Website {{$data->artist_website}}</b>    
                     </div>
                 </div> 
             </div>
