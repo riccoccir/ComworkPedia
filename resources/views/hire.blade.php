@@ -99,7 +99,56 @@
                     <div class="row text-center">
                         <p class="card-text col-md-5">{{ $data->commission_duration}} hari</p>
                         <div class="col-md-3 col-sm-4 "><h6 style="color:#00adb5;">{{$data->commission_price}}</h6></div>
-                        <div class="col-md-3 col-sm-4 "><button type="button " class="btn btn-default btn-sm" style="background-color:#00adb5; color: white; margin-bottom: 10px;">Make <br> Commision</button></div>                  
+                        <div class="col-md-3 col-sm-4 "><a class="nav-link" href="#" data-toggle="modal" data-target="#HireModal"><button type="button " class="btn btn-default btn-sm" style="background-color:#00adb5; color: white; margin-bottom: 10px;">Make <br> Commision</button></a>
+                        </div>
+                        </div>
+      <div class="modal fade" id="HireModal" tabindex="-1" role="dialog" aria-labelledby="HireModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Create Hire</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="hire-form" class="form" action="/hire/hiring" method="POST" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                          <label for="bankname" class="text">Bank : {{$data->bank_name}}</label><br>
+                          <label for="accountnumber" class="text">Nomor Rekening : {{$data->bank_account_number}}</label><br>
+                          <label for="accountownership" class="text">Atas nama: {{$data->account_ownership}}</label>
+                        <div class="form-group">
+                            <label for="commissiondescription" class="text">Commission Description:</label><br>
+                            <input type="textarea" name="commissiondescription" id="commissiondescription" class="form-control {{ $errors->has('commissiondescription') ? 'is-invalid' : ''}}" value="{{ old('commissiondescription')}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="imagelink" class="text">Image Link:</label><br>
+                            <input type="text" name="imagelink" id="imagelink" class="form-control {{ $errors->has('imagelink') ? 'is-invalid' : ''}}" value="{{ old('imagelink')}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="category" class="text">Pembayaran:</label><br>
+                            <input type="radio" name="category" id="ovo" value="1">
+                            <label for="ovo" class="text">OVO</label><br>
+                            <input type="radio" name="category" id="gopay" value="2">
+                            <label for="gopay" class="text">Go-Pay</label><br>
+                            <input type="radio" name="category" id="Bank" value="3">
+                            <label for="bank" class="text">Bank</label><br>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <label for="imagetarget" class="text">Artwork Target:</label><br>
+                                <input type="file" name="imagetarget" id="imagetarget" class="form-control {{ $errors->has('imagetarget') ? 'is-invalid' : ''}}" value="{{ old('imagetarget')}}">
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Create Hire">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>                  
                     </div>            
                 </div>
             </div> 
