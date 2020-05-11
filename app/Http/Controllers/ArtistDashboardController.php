@@ -171,6 +171,8 @@ class ArtistDashboardController extends Controller
             ->join('trcommission', 'trcommission.commission_id', '=', 'detailhire.commission_id')
             ->where('trcommission.artist_id', $userId['id'])->get();
 
+        // dd($pendingList);
+
         $onProgressList = HeaderHireTransaction::where('transaction_status', 'on progress')
             ->orWhere( 'transaction_status', 'revision')
             ->join('msclient', 'msclient.id', '=', 'headerhiretransaction.client_id')

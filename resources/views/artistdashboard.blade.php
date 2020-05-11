@@ -106,12 +106,12 @@
                             <td>{{ $row->commission_name }}</td>
                             <td>{{ $row->slot_available }}</td>
                             <td>{{ $row->payment_amount }}</td>
-                            <td>ntar ada gambar</td>
+                            <td><a href="{{ asset('uploads/paymentreceipt/'. $row->transfer_receipt) }}" target="_blank">{{ $row->transfer_receipt }}</a></td>
                             <td>Waiting</td>
                             <td>
                                 <div class="text-center">
                                     <a href="/artist/dashboard/{{ $row->hire_id }}/status/onprogress"><input type="button" value="Accept" class="btn btn-success mr-2"></a>
-                                    <a href="/artist/dashboard/{{ $row->hire_id }}/status/rejected""><input type=" button" value="Reject" class="btn btn-danger mr-2"></a>
+                                    <a href="/artist/dashboard/{{ $row->hire_id }}/status/rejected""><input type="button" value="Reject" class="btn btn-danger mr-2"></a>
                                 </div>
                             </td>
                         </tr>
