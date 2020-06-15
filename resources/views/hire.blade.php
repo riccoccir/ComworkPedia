@@ -122,10 +122,10 @@
                             <label for="commissiondescription" class="text">Commission Description:</label><br>
                             <input type="textarea" name="commissiondescription" id="commissiondescription" class="form-control {{ $errors->has('commissiondescription') ? 'is-invalid' : ''}}" value="{{ old('commissiondescription')}}">
                         </div>
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label for="imagelink" class="text">Image Link:</label><br>
                             <input type="text" name="imagelink" id="imagelink" class="form-control {{ $errors->has('imagelink') ? 'is-invalid' : ''}}" value="{{ old('imagelink')}}">
-                        </div> -->
+                        </div>
                         <div class="form-group">
                             <label for="category" class="text">Pembayaran:</label><br>
                             <input type="radio" name="category" id="ovo" value="1">
@@ -135,12 +135,12 @@
                             <input type="radio" name="category" id="Bank" value="3">
                             <label for="bank" class="text">Bank</label><br>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="custom-file">
                                 <label for="imagetarget" class="text">Artwork Target:</label><br>
                                 <input type="file" name="imagetarget" id="imagetarget" class="form-control {{ $errors->has('imagetarget') ? 'is-invalid' : ''}}" value="{{ old('imagetarget')}}">
                             </div>
-                        </div>
+                        </div> -->
                 </div>
                 <div class="modal-footer">
                     <input type="submit" name="submit" class="btn btn-primary" value="Create Hire">
