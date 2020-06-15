@@ -14,24 +14,24 @@
     <li data-target="#carouselExampleInterval" data-slide-to="1"></li>
     <li data-target="#carouselExampleInterval" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner">
+  <div class="carousel-inner tex">
     <div class="carousel-item active">
       <img src="{{url('uploads/commission/'.$data->commission_image)}}" class="d-block w-100" alt="Linear Art" width="400px" height="300px">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block text-dark">
         <h5>First slide label</h5>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="{{url('uploads/commission/'.$data->commission_image)}}" class="d-block w-100" alt="Linear Art" width="400px" height="300px">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block text-dark">
         <h5>Second slide label</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="{{url('uploads/commission/'.$data->commission_image)}}" class="d-block w-100" alt="Linear Art" width="400px" height="300px">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block text-dark">
         <h5>Third slide label</h5>
         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
       </div>
@@ -89,16 +89,16 @@
                 <div class="card-body container">
                     <br>
                     <div class="row">
-                    <div class="col-md-10 col-sm-5 "><h5 class="card-title">Express packet</h5></div>
-                    <div>0/4</div>
+                    <div class="col-md-8 col-sm-5 "><h5 class="card-title">Express packet</h5></div>
+                    <div class="col-md-4 col-sm-5">{{$data->slot_available}} slot remaining</div>
                     </div>              
-                    <h6 class="card-subtitle mb-2 text-muted">Description for the packet</h6>
+                    <h6 class="card-subtitle  mb-1 text-muted">Description for the packet</h6>
                     <hr>  
                 </div>
                 <div class="Card-footer container">        
                     <div class="row text-center">
-                        <p class="card-text col-md-5">{{ $data->commission_duration}} hari</p>
-                        <div class="col-md-3 col-sm-4 "><h6 style="color:#00adb5;">{{$data->commission_price}}</h6></div>
+                        <p class="card-text mt-2 col-md-5">{{ $data->commission_duration}} hari</p>
+                        <div class="col-md-3 mt-2 col-sm-4 "><h6 style="color:#00adb5;">{{$data->commission_price}}</h6></div>
                         <div class="col-md-3 col-sm-4 "><a class="nav-link" href="#" data-toggle="modal" data-target="#HireModal"><button type="button " class="btn btn-default btn-sm" style="background-color:#00adb5; color: white; margin-bottom: 10px;">Make <br> Commision</button></a>
                         </div>
                         </div>
@@ -122,10 +122,10 @@
                             <label for="commissiondescription" class="text">Commission Description:</label><br>
                             <input type="textarea" name="commissiondescription" id="commissiondescription" class="form-control {{ $errors->has('commissiondescription') ? 'is-invalid' : ''}}" value="{{ old('commissiondescription')}}">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="imagelink" class="text">Image Link:</label><br>
                             <input type="text" name="imagelink" id="imagelink" class="form-control {{ $errors->has('imagelink') ? 'is-invalid' : ''}}" value="{{ old('imagelink')}}">
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="category" class="text">Pembayaran:</label><br>
                             <input type="radio" name="category" id="ovo" value="1">
@@ -158,10 +158,11 @@
                     
                         <h5 class="card-title" style="font-weight: bold;"> Verified Data</h5>
                         <br>
-                        <b>Phone Number</b> <b> {{$data->artist_phoneNumber}}</b><br>
-                        <b>Email </b> <b>{{$data->artist_email}}</b><br>
-                        <b>Instagram {{$data->artist_instagram}}</b><br>
-                        <b>Website {{$data->artist_website}}</b>    
+                        <div class="row">
+                        <b class="col-sm-6">Phone Number</b> <p class=col-sm-8> {{$data->artist_phoneNumber}}</p>
+                        <b class="col-sm-5">Email </b> <p class="col-sm-8">{{$data->artist_email}}</p>
+                        <b class="col-sm-6">Instagram</b> <p class="col-sm-8">{{$data->artist_instagram}}</p>
+                        <b class="col-sm-6">Website</b> <p class="col-sm-8"> {{$data->artist_website}}</p>    
                     </div>
                 </div> 
             </div>
@@ -170,7 +171,7 @@
         <div class="row container" style="margin-left: 50px;">
             <div class="col-sm-4 col-md-offset-2">
             <br>
-            <h3>Commision Description</h3>
+            <h3>Order Description</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>  
