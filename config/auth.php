@@ -46,6 +46,24 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'artist' => [
+            'driver' => 'session',
+            'provider' => 'artists',
+        ],
+        'api-artist' => [
+            'driver' => 'token',
+            'provider' => 'artists',
+            'hash' => false,
+        ],
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
+        'api-client' => [
+            'driver' => 'token',
+            'provider' => 'clients',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -69,6 +87,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'artists' => [
+            'driver' => 'eloquent',
+            'model' => App\Artist_Login::class,
+        ],
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => App\Client_Login::class,
         ],
 
         // 'users' => [
@@ -95,6 +121,11 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'users' => [
+            'provider' => 'artists',
             'table' => 'password_resets',
             'expire' => 60,
         ],
