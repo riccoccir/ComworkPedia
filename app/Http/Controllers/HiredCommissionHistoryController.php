@@ -39,4 +39,29 @@ class HiredCommissionHistoryController extends Controller
 
         return redirect('/commission/history');
     }
+
+    public function submitPaymentReceipt($id, Request $request){
+        $this->validate($request, [
+            'imageexample' => 'required'
+        ]);
+
+        
+
+        $commission = HeaderHireTransaction::where('hire_id', $id)->get();
+
+        if ($request->hasFile('imageexample')) {
+            $file = $request->file('imageexample');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/paymentreceipt/', $filename);
+            // $commission->transfer_receipt = $filename;
+        } else {
+            return $request;
+            // $commission->transfer_receipt = '';
+        }
+
+        HeaderHireTransaction::where('hire_id', $id)->update(['transfer_receipt' => $filename ]);;
+
+        return redirect('/commission/history');
+    }
 }

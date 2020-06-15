@@ -12,9 +12,9 @@
     <div class="container mt-5 mb-5" style="min-height: 600px">
         <h1 style="mb-3">Hired Commission History</h1>
         @if($data->isEmpty())
-            <div class="mt=3">
-                <h3>No Data</h3>
-            </div>
+        <div class="mt=3">
+            <h3>No Data</h3>
+        </div>
         @endif
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
@@ -37,14 +37,48 @@
                         <td><a href="{{ url($row->image_from_artist) }}" target="_blank">{{ $row->image_from_artist }}</a></td>
                         <td>{{ $row->transaction_status }}</td>
                         <td>
-                            @if($row->transaction_status != 'accepted')
+                            @if($row->transaction_status == 'submitted')
                             <div class="d-flex">
                                 <a href="#" data-toggle="modal" data-target="#acceptCommission-{{ $row->hire_id }}"><input type="button" value="Accept" class="btn btn-info mr-2"></a>
                                 <a href="#" data-toggle="modal" data-target="#revisionCommission-{{ $row->hire_id }}"><input type="button" value="Revision" class="btn btn-primary mr-2"></a>
                             </div>
                             @endif
+                            @if($row->transaction_status == 'on progress')
+                            <div class="d-flex">
+                                <a href="#" data-toggle="modal" data-target="#submitPaymentReceipt-{{ $row->hire_id }}"><input type="button" value="Upload Transfer Receipt" class="btn btn-info mr-2"></a>
+                            </div>
+                            @endif
                         </td>
                     </tr>
+
+                    <!-- MODAL SUBMIT PAYMENT RECEIPT -->
+                    <div class="modal fade" id="submitPaymentReceipt-{{ $row->hire_id }}" tabindex="-1" role="dialog" aria-labelledby="SubmitPaymentReceiptModalTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Payment Receipt</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="uploadpaymentreceipt-form" class="form" action="/commission/uploadreceipt/{{ $row->hire_id }}" method="POST" enctype="multipart/form-data">
+                                        {{ csrf_field() }}
+                                        <div class="form-group">
+                                            <div class="custom-file">
+                                                <label for="imageexample" class="text">Payment Receipt:</label><br>
+                                                <input type="file" name="imageexample" id="imageexample" class="form-control {{ $errors->has('imageexample') ? 'is-invalid' : ''}}" value="{{ old('imageexample')}}">
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" name="submit" class="btn btn-primary" value="Upload Image">
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- MODAL ACCEPT RESULT-->
                     <div class="modal fade" id="acceptCommission-{{ $row->hire_id }}" tabindex="-1" role="dialog" aria-labelledby="acceptcommissionmodal" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
