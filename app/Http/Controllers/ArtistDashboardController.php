@@ -175,6 +175,7 @@ class ArtistDashboardController extends Controller
 
         $onProgressList = HeaderHireTransaction::where('transaction_status', 'on progress')
             ->orWhere( 'transaction_status', 'revision')
+            ->orWhere('transaction_status', 'submitted')
             ->join('msclient', 'msclient.id', '=', 'headerhiretransaction.client_id')
             ->join('detailhire', 'detailhire.hire_id', '=', 'headerhiretransaction.hire_id')
             ->join('trcommission', 'trcommission.commission_id', '=', 'detailhire.commission_id')

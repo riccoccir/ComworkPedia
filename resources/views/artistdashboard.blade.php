@@ -75,7 +75,7 @@
                     </tbody>
                 </table>
                 @if(\Session::has('cantdelete'))
-                <h3>{{!! \Sessin::get('cantdelete') !!}}</h3>
+                <h3>{{!! \Session::get('cantdelete') !!}}</h3>
                 @endif
             </div>
             @endif
