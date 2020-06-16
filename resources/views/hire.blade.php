@@ -14,9 +14,9 @@
     <li data-target="#carouselExampleInterval" data-slide-to="1"></li>
     <li data-target="#carouselExampleInterval" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner tex">
+  <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{url('uploads/commission/'.$data->commission_image)}}" class="d-block w-100" alt="Linear Art" width="400px" height="300px">
+    <img src="{{url('uploads/commission/'.$data->commission_image)}}" class="d-block w-100" alt="Linear Art" width="400px" height="300px">
       <div class="carousel-caption d-none d-md-block text-dark">
         <h5>First slide label</h5>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -45,8 +45,6 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-
-    
   </div>
   
 </div>

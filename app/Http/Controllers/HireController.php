@@ -19,4 +19,7 @@ class HireController extends Controller
         // dd($data);
         return redirect('/hire/'.(int)$typeid.'/hire-commission/'.(int)$commissionid.'', ['data' => $data]);
     }
+    public function createHire(){
+
+    }
 }
