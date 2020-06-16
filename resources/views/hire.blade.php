@@ -110,19 +110,19 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="hire-form" class="form" action="/hire/hiring" method="POST" enctype="multipart/form-data">
+                    <form id="hire-form" class="form" action="/hire/hiring/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
-                          <label for="bankname" class="text">Bank : {{$data->bank_name}}</label><br>
-                          <label for="accountnumber" class="text">Nomor Rekening : {{$data->bank_account_number}}</label><br>
-                          <label for="accountownership" class="text">Atas nama: {{$data->account_ownership}}</label>
-                        <div class="form-group">
-                            <label for="commissiondescription" class="text">Commission Description:</label><br>
-                            <input type="textarea" name="commissiondescription" id="commissiondescription" class="form-control {{ $errors->has('commissiondescription') ? 'is-invalid' : ''}}" value="{{ old('commissiondescription')}}">
-                        </div>
+                          <label for="bankname" class="text font-weight-bold">Bank : {{$data->bank_name}}</label><br>
+                          <label for="accountnumber" class="text font-weight-bold">Nomor Rekening : {{$data->bank_account_number}}</label><br>
+                          <label for="accountownership" class="text font-weight-bold">Atas nama: {{$data->account_ownership}}</label>
                         <div class="form-group">
                             <label for="imagelink" class="text">Image Link:</label><br>
                             <input type="text" name="imagelink" id="imagelink" class="form-control {{ $errors->has('imagelink') ? 'is-invalid' : ''}}" value="{{ old('imagelink')}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="payment_amount" class="text">Payment Amount: Rp {{$data->commission_price}}</label><br>
+                            <input type="textarea" name="payment_amount" id="payment_amount" class="form-control {{ $errors->has('payment_amount') ? 'is-invalid' : ''}}" value="{{ old('payment_ammount')}}">
                         </div>
                         <div class="form-group">
                             <label for="category" class="text">Pembayaran:</label><br>
