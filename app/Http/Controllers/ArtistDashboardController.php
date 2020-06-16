@@ -201,12 +201,10 @@ class ArtistDashboardController extends Controller
         }
     }
 
-    public function editCommission()
-    { }
-
     public function submitLinkImage($id, Request $newImageLink)
     {
-        HeaderHireTransaction::where('hire_id', $id)->update(['image_from_artist' => $newImageLink->resultimage]);
+        HeaderHireTransaction::where('hire_id', $id)
+        ->update(['image_from_artist' => $newImageLink->resultimage , 'transaction_status' => 'submitted']);
 
         return redirect('/artist/dashboard');
     }

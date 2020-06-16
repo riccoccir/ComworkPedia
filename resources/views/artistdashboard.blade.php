@@ -95,7 +95,6 @@
                             <th>Commission Name</th>
                             <th>Job Details</th>
                             <th>Job Price</th>
-                            <th>Paymet Receipt</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -106,12 +105,11 @@
                             <td>{{ $row->commission_name }}</td>
                             <td>{{ $row->slot_available }}</td>
                             <td>{{ $row->payment_amount }}</td>
-                            <td><a href="{{ asset('uploads/paymentreceipt/'. $row->transfer_receipt) }}" target="_blank">{{ $row->transfer_receipt }}</a></td>
-                            <td>Waiting</td>
+                            <td>{{ $row->transaction_status }}</td>
                             <td>
                                 <div class="text-center">
                                     <a href="/artist/dashboard/{{ $row->hire_id }}/status/onprogress"><input type="button" value="Accept" class="btn btn-success mr-2"></a>
-                                    <a href="/artist/dashboard/{{ $row->hire_id }}/status/rejected""><input type="button" value="Reject" class="btn btn-danger mr-2"></a>
+                                    <a href="/artist/dashboard/{{ $row->hire_id }}/status/rejected""><input type=" button" value="Reject" class="btn btn-danger mr-2"></a>
                                 </div>
                             </td>
                         </tr>
@@ -135,6 +133,7 @@
                         <tr>
                             <th>Commission ID</th>
                             <th>Client Name</th>
+                            <th>Paymet Receipt</th>
                             <th>Status</th>
                             <th>Image from Client</th>
                             <th>Image from Artist</th>
@@ -146,6 +145,7 @@
                         <tr>
                             <td>{{ $row->commission_id }}</td>
                             <td>{{ $row->client_name }}</td>
+                            <td><a href="{{ asset('uploads/paymentreceipt/'. $row->transfer_receipt) }}" target="_blank">{{ $row->transfer_receipt }}</a></td>
                             <td>{{ $row->transaction_status }}</td>
                             <td><a href="{{ $row->image_from_client }}">image from client</a></td>
                             <form id="newimage" action="/artist/submit/image/{{ $row->hire_id }}" method="POST">
