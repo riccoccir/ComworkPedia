@@ -59,7 +59,7 @@ Auth::routes();
 
     Route::post('/commission/uploadreceipt/{id}','HiredCommissionHistoryController@submitPaymentReceipt')->middleware('auth:client');
 
-    Route::post('/hire/hiring/{id}','HireController@createNewHire')->middleware('auth:client');
+    Route::post('/hire/hiring/{commission_id}','HireController@createNewHire')->middleware('auth:client');
 
 Route::get('/artistlogin', function () {
     return view('artistlogin');

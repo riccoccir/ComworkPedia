@@ -110,7 +110,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="hire-form" class="form" action="/hire/hiring/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+                    <form id="hire-form" class="form" action="/hire/hiring/{{ $data->commission_id }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                           <label for="bankname" class="text font-weight-bold">Bank : {{$data->bank_name}}</label><br>
