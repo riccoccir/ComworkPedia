@@ -133,12 +133,11 @@
                             <input type="radio" name="category" id="Bank" value="3">
                             <label for="bank" class="text">Bank</label><br>
                         </div>
-                        <!-- <div class="form-group">
-                            <div class="custom-file">
-                                <label for="imagetarget" class="text">Artwork Target:</label><br>
-                                <input type="file" name="imagetarget" id="imagetarget" class="form-control {{ $errors->has('imagetarget') ? 'is-invalid' : ''}}" value="{{ old('imagetarget')}}">
-                            </div>
-                        </div> -->
+                        <div class="form-group">
+                            
+                                <label for="notification" class="text-center font-weight-bold">JANGAN LUPA UNTUK MENGECEK GAMBAR DARI ARTIST PADA COMMISSION HISTORY</label><br>
+                                
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <input type="submit" name="submit" class="btn btn-primary" value="Create Hire">
