@@ -34,7 +34,12 @@
                         <td>{{ $row->commission_name }}</td>
                         <td>{{ $row->payment_amount }}</td>
                         <td><a href="{{ url($row->image_from_client) }}" target="_blank">{{ $row->image_from_client }}</a></td>
+                        @if($row->image_from_artist)
                         <td><a href="{{ url($row->image_from_artist) }}" target="_blank">{{ $row->image_from_artist }}</a></td>
+                        @else
+                        <td>No Data</td>
+                        @endif
+
                         <td>{{ $row->transaction_status }}</td>
                         <td>
                             @if($row->transaction_status == 'submitted')

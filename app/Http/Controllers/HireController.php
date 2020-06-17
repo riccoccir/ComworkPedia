@@ -35,6 +35,7 @@ class HireController extends Controller
         $hire->client_id = $userId['id'];
         $hire->payment_id = $request->input('category');
         $hire->image_from_client = $request->input('imagelink');
+        $hire->image_from_artist = "null";
         $hire->transaction_status = 'waiting';
         $hire->payment_amount = $request->input('payment_amount');
         $hire->save();
