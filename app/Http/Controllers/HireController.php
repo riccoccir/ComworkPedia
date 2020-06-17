@@ -25,7 +25,6 @@ class HireController extends Controller
     public function createNewHire(Request $request, $commission_id)
     {
         $userId = Auth::guard('client')->user();
-        
         $this->validate($request, [
             'imagelink' => 'required',
             'category' => 'required',

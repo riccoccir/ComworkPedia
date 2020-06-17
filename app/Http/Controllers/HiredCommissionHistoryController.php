@@ -25,6 +25,8 @@ class HiredCommissionHistoryController extends Controller
         ->join('trcommission', 'trcommission.commission_id', '=', 'detailhire.commission_id')
         ->where('msclient.id', $user['id'])->get();
 
+        // dd($data);
+
         return view('hiredcommissionlist', compact('data'));
     }
 
@@ -44,8 +46,6 @@ class HiredCommissionHistoryController extends Controller
         $this->validate($request, [
             'imageexample' => 'required'
         ]);
-
-        
 
         $commission = HeaderHireTransaction::where('hire_id', $id)->get();
 
