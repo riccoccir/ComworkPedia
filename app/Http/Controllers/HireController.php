@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 use App\TrCommission;
 use App\MsArtist;
 use App\MsCommissionType;
+use App\HeaderHireTransaction;
+use App\DetailHire;
 use DB;
+use Auth;
 use Illuminate\Http\Request;
 
 class HireController extends Controller
@@ -18,5 +21,31 @@ class HireController extends Controller
 
         // dd($data);
         return redirect('/hire/'.(int)$typeid.'/hire-commission/'.(int)$commissionid.'', ['data' => $data]);
+    }
+    public function createNewHire(Request $request, $commission_id)
+    {
+        $userId = Auth::guard('client')->user();
+        
+        $this->validate($request, [
+            'imagelink' => 'required',
+            'category' => 'required',
+            'payment_amount' => 'required'
+        ]);
+        $hire = new HeaderHireTransaction();
+
+        $hire->client_id = $userId['id'];
+        $hire->payment_id = $request->input('category');
+        $hire->image_from_client = $request->input('imagelink');
+        $hire->transaction_status = 'waiting';
+        $hire->payment_amount = $request->input('payment_amount');
+        $hire->save();
+        
+        // $detail = new DetailHire();
+        // $detail->hire_id = $hire->hire_id;
+        // $detail->commission_id = $commission_id;
+        // $detail->save();
+
+        return redirect('/commission/history');
+
     }
 }

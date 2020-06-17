@@ -18,7 +18,7 @@ class CreateHeaderHireTransactionTable extends Migration
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('payment_id');
             $table->string('image_from_client');
-            $table->string('image_from_artist');
+            $table->string('image_from_artist')->nullable();
             $table->string('transaction_status');
             $table->integer('payment_amount');
             $table->mediumText('transfer_receipt')->nullable();

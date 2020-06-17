@@ -14,9 +14,9 @@
     <li data-target="#carouselExampleInterval" data-slide-to="1"></li>
     <li data-target="#carouselExampleInterval" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner tex">
+  <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{url('uploads/commission/'.$data->commission_image)}}" class="d-block w-100" alt="Linear Art" width="400px" height="300px">
+    <img src="{{url('uploads/commission/'.$data->commission_image)}}" class="d-block w-100" alt="Linear Art" width="400px" height="300px">
       <div class="carousel-caption d-none d-md-block text-dark">
         <h5>First slide label</h5>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -45,8 +45,6 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-
-    
   </div>
   
 </div>
@@ -112,19 +110,19 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="hire-form" class="form" action="/hire/hiring" method="POST" enctype="multipart/form-data">
+                    <form id="hire-form" class="form" action="/hire/hiring/{{ $data->commission_id }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
-                          <label for="bankname" class="text">Bank : {{$data->bank_name}}</label><br>
-                          <label for="accountnumber" class="text">Nomor Rekening : {{$data->bank_account_number}}</label><br>
-                          <label for="accountownership" class="text">Atas nama: {{$data->account_ownership}}</label>
-                        <div class="form-group">
-                            <label for="commissiondescription" class="text">Commission Description:</label><br>
-                            <input type="textarea" name="commissiondescription" id="commissiondescription" class="form-control {{ $errors->has('commissiondescription') ? 'is-invalid' : ''}}" value="{{ old('commissiondescription')}}">
-                        </div>
+                          <label for="bankname" class="text font-weight-bold">Bank : {{$data->bank_name}}</label><br>
+                          <label for="accountnumber" class="text font-weight-bold">Nomor Rekening : {{$data->bank_account_number}}</label><br>
+                          <label for="accountownership" class="text font-weight-bold">Atas nama: {{$data->account_ownership}}</label>
                         <div class="form-group">
                             <label for="imagelink" class="text">Image Link:</label><br>
                             <input type="text" name="imagelink" id="imagelink" class="form-control {{ $errors->has('imagelink') ? 'is-invalid' : ''}}" value="{{ old('imagelink')}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="payment_amount" class="text">Payment Amount: Rp {{$data->commission_price}}</label><br>
+                            <input type="textarea" name="payment_amount" id="payment_amount" class="form-control {{ $errors->has('payment_amount') ? 'is-invalid' : ''}}" value="{{ old('payment_ammount')}}">
                         </div>
                         <div class="form-group">
                             <label for="category" class="text">Pembayaran:</label><br>
@@ -135,12 +133,11 @@
                             <input type="radio" name="category" id="Bank" value="3">
                             <label for="bank" class="text">Bank</label><br>
                         </div>
-                        <!-- <div class="form-group">
-                            <div class="custom-file">
-                                <label for="imagetarget" class="text">Artwork Target:</label><br>
-                                <input type="file" name="imagetarget" id="imagetarget" class="form-control {{ $errors->has('imagetarget') ? 'is-invalid' : ''}}" value="{{ old('imagetarget')}}">
-                            </div>
-                        </div> -->
+                        <div class="form-group">
+                            
+                                <label for="notification" class="text-center font-weight-bold">JANGAN LUPA UNTUK MENGECEK GAMBAR DARI ARTIST PADA COMMISSION HISTORY</label><br>
+                                
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <input type="submit" name="submit" class="btn btn-primary" value="Create Hire">
