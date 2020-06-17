@@ -117,7 +117,7 @@ class ArtistDashboardController extends Controller
             $commission->commission_image = $filename;
         } else {
             return $request;
-            $commission->commission_image = '';
+            $commission->commission_image = '1592306333.jpg';
         }
         $commission->save();
 

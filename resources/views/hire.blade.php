@@ -135,7 +135,7 @@
                         </div>
                         <div class="form-group">
                             
-                                <label for="notification" class="text-center font-weight-bold">JANGAN LUPA UNTUK MENGECEK GAMBAR DARI ARTIST PADA COMMISSION HISTORY</label><br>
+                                <label for="notification" class="text-center font-weight-bold">Mohon untuk mengirimkan bukti transfer pada halaman commission history</label><br>
                                 
                         </div>
                 </div>

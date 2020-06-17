@@ -40,10 +40,10 @@ class HireController extends Controller
         $hire->payment_amount = $request->input('payment_amount');
         $hire->save();
         
-        // $detail = new DetailHire();
-        // $detail->hire_id = $hire->hire_id;
-        // $detail->commission_id = $commission_id;
-        // $detail->save();
+        $detail = new DetailHire();
+        $detail->hire_id = $hire->id;
+        $detail->commission_id = $commission_id;
+        $detail->save();
 
         return redirect('/commission/history');
 
