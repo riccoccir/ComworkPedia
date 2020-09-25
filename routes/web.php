@@ -18,6 +18,9 @@
 
 //route untuk client dan guest
 
+Route::get('/', function () {
+    return view('homepage');
+})->middleware('guest');
 
 Route::get('/home', function () {
     return view('homepage');
@@ -40,24 +43,24 @@ Auth::routes();
 
 //route untuk client
 
-    Route::get('/clientlogout','ClientController@logout')->middleware('auth:client');
-    
-    Route::get('/clienthome', function(){
-        return view('clienthome');
-    })->middleware('auth:client');
-    Route::get('/commissionlist/{typeid}', 'CommissionListController@showList')->middleware('auth:client');
-    
-    Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo')->middleware('auth:client');
-    
-    Route::get('/commission/history', 'HiredCommissionHistoryController@index')->middleware('auth:client');
+Route::get('/clientlogout', 'ClientController@logout')->middleware('auth:client');
 
-    Route::get('/commission/accept/{id}', 'HiredCommissionHistoryController@acceptCommissionResult')->middleware('auth:client');
+Route::get('/clienthome', function () {
+    return view('clienthome');
+})->middleware('auth:client');
+Route::get('/commissionlist/{typeid}', 'CommissionListController@showList')->middleware('auth:client');
 
-    Route::get('/commission/revision/{id}', 'HiredCommissionHistoryController@askForRevision')->middleware('auth:client');
+Route::get('/commissionlist/{typeid}/commission/{commissionid}', 'CommissionListController@showDetailedCommissionInfo')->middleware('auth:client');
 
-    Route::get('/hire/{typeid}/hire-commission/{commissionid}','HireController@index')->middleware('auth:client');
+Route::get('/commission/history', 'HiredCommissionHistoryController@index')->middleware('auth:client');
 
-    
+Route::get('/commission/accept/{id}', 'HiredCommissionHistoryController@acceptCommissionResult')->middleware('auth:client');
+
+Route::get('/commission/revision/{id}', 'HiredCommissionHistoryController@askForRevision')->middleware('auth:client');
+
+Route::get('/hire/{typeid}/hire-commission/{commissionid}', 'HireController@index')->middleware('auth:client');
+
+
 
 Route::get('/artistlogin', function () {
     return view('artistlogin');
@@ -75,16 +78,16 @@ Route::post('/postartistregister', 'ArtistController@artistRegister')->middlewar
 
 //route untuk artist
 
-    Route::get('/artist/dashboard', 'ArtistDashboardController@showPage')->middleware('auth:artist');
-    
-    Route::post('/artist/newcommission', 'ArtistDashboardController@createNewCommission')->middleware('auth:artist');
-    
-    Route::get('/artist/logout', 'ArtistController@logout')->middleware('auth:artist');
+Route::get('/artist/dashboard', 'ArtistDashboardController@showPage')->middleware('auth:artist');
 
-    Route::get('/artist/dashboard/delete/{id}', 'ArtistDashboardController@deleteCommission')->middleware('auth:artist');
+Route::post('/artist/newcommission', 'ArtistDashboardController@createNewCommission')->middleware('auth:artist');
 
-    Route::put('/artist/dashboard/delete/{id}', 'ArtistDashboardController@editCommission')->middleware('auth:artist');
+Route::get('/artist/logout', 'ArtistController@logout')->middleware('auth:artist');
 
-    Route::get('/artist/dashboard/{postId}/status/{status}', 'ArtistDashboardController@acceptOrRejectOffer')->middleware('auth:artist');
+Route::get('/artist/dashboard/delete/{id}', 'ArtistDashboardController@deleteCommission')->middleware('auth:artist');
 
-    Route::post('/artist/submit/image/{id}', 'ArtistDashboardController@submitLinkImage')->middleware('auth:artist');
+Route::put('/artist/dashboard/delete/{id}', 'ArtistDashboardController@editCommission')->middleware('auth:artist');
+
+Route::get('/artist/dashboard/{postId}/status/{status}', 'ArtistDashboardController@acceptOrRejectOffer')->middleware('auth:artist');
+
+Route::post('/artist/submit/image/{id}', 'ArtistDashboardController@submitLinkImage')->middleware('auth:artist');

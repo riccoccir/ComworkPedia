@@ -8,7 +8,7 @@
 
                 <div class="col-md-6 mt-md-0 mt-3">
                     <h5 class="text-uppercase">About Us</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa impedit dolorem odio cupiditate? Laudantium quae aliquid, porro, tenetur cumque eius maxime nesciunt illum nisi aperiam sunt, nemo veritatis a minus?</p>
+                    <p><strong>Comworkpedia</strong> is a place when an artist can meet their client, and a client can get their dream artwork. we work together to make sure our users are happy while doing transaction here.</p>
                 </div>
 
                 <hr class="clearfix w-100 d-md-none pb-3">
